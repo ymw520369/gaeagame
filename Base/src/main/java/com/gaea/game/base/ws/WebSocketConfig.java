@@ -1,6 +1,7 @@
 package com.gaea.game.base.ws;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.socket.config.annotation.EnableWebSocket;
 import org.springframework.web.socket.config.annotation.WebSocketConfigurer;
@@ -24,5 +25,15 @@ public class WebSocketConfig extends WebMvcConfigurerAdapter implements WebSocke
     public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
         registry.addHandler(messageHandler, "/websocket").setAllowedOrigins("*").addInterceptors(interceptor);
         registry.addHandler(messageHandler, "/websocket/sockjs").addInterceptors(interceptor).withSockJS();
+    }
+
+    @Bean
+    public WSMessageHandler messageHandler() {
+        return messageHandler = new WSMessageHandler();
+    }
+
+    @Bean
+    public HandshakeInterceptor handshakeInterceptor() {
+        return interceptor = new LoginHandShakeInterceptor();
     }
 }

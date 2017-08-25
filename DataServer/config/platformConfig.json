@@ -1,0 +1,7 @@
+{
+  "secretKey": "aaaaaaaaaaaaaaa",
+  "vertifyUrl": "http://localhost:8080/vertify",
+  "consumeUrl": "http://localhost:8080/comsume"
+}
+
+

@@ -3,6 +3,8 @@ package com.gaea.game.base.data;
 
 import com.gaea.game.base.ws.WSMessage;
 
+import java.util.concurrent.atomic.AtomicLong;
+
 /**
  * author Alan
  * eamil mingweiyang@foxmail.com
@@ -13,5 +15,5 @@ public class Role {
     public String userId;
     public long roleUid;
     public String name;
-    public long money;
+    public volatile AtomicLong money;
 }

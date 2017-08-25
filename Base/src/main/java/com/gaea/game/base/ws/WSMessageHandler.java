@@ -3,8 +3,7 @@ package com.gaea.game.base.ws;
 import com.alibaba.fastjson.JSON;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.Bean;
 import org.springframework.web.socket.CloseStatus;
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
@@ -16,13 +15,16 @@ import org.springframework.web.socket.handler.TextWebSocketHandler;
  * @author Alan
  * @since 1.0
  */
-@Component
 public class WSMessageHandler extends TextWebSocketHandler {
 
     Logger log = LoggerFactory.getLogger(WSMessageHandler.class);
 
-    @Autowired
     WSMessageDispatcher messageDispatcher;
+
+    @Bean
+    public WSMessageDispatcher messageDispatcher() {
+        return messageDispatcher = new WSMessageDispatcher();
+    }
 
     @Override
     public void afterConnectionEstablished(WebSocketSession session) throws Exception {

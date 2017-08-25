@@ -1,7 +1,7 @@
 package com.gaea.game.base.dao.impl;
 
-import org.alan.chess.logic.dao.PlayerDao;
-import org.alan.chess.logic.data.Player;
+import com.gaea.game.base.dao.PlayerDao;
+import com.gaea.game.base.data.Player;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

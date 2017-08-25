@@ -11,6 +11,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 
 import java.util.UUID;
+import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * author Alan
@@ -18,7 +19,7 @@ import java.util.UUID;
  * date 2017/8/16
  */
 @Component
-public class DataManager implements PlayerExitListener {
+public class DataManager {
 
     @Autowired
     private RedisTemplate<String, String> redisTemplate;
@@ -62,17 +63,8 @@ public class DataManager implements PlayerExitListener {
         role.name = platformUserInfo.userName;
         role.roleUid = roleUid;
         role.userId = platformUserInfo.userId;
-        role.money = 10000;
+        role.money = new AtomicLong(10000L);
         roleDao.save(role);
         return role;
-    }
-
-    @Override
-    public void playerExit(PlayerController playerController) {
-        //玩家退出后，将玩家数据清除并存入mongo
-        long roleUid = playerController.playerId();
-        HashOperations<String, Long, Player> hashOperations = redisTemplate.opsForHash();
-        hashOperations.delete(RedisKey.ONLINE_PLAYER, roleUid);
-        roleDao.save(playerController.player.role);
     }
 }

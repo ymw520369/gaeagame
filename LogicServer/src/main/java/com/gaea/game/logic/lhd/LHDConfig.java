@@ -7,7 +7,14 @@ package com.gaea.game.logic.lhd;
  * @since 1.0
  */
 public class LHDConfig {
-    public static final float longDdds = 2;
-    public static final float huDdds = 2;
-    public static final float heDdds = 8;
+    /* 龙赔率*/
+    public static float longDdds = 2;
+    /* 虎赔率*/
+    public static float huDdds = 2;
+    /* 合赔率*/
+    public static float heDdds = 8;
+    /* 每局押注时间*/
+    public static int betTime = 30;
+    /* 每局开启间隔时间*/
+    public static int intervalTime = 30;
 }

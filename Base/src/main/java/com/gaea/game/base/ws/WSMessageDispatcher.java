@@ -1,9 +1,10 @@
 package com.gaea.game.base.ws;
 
 import com.alibaba.fastjson.JSON;
-import com.gaea.game.base.constant.MessageConst;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.ApplicationListener;
+import org.springframework.context.event.ContextRefreshedEvent;
 
 import java.util.Map;
 
@@ -13,7 +14,7 @@ import java.util.Map;
  * @author Alan
  * @since 1.0
  */
-public class WSMessageDispatcher {
+public class WSMessageDispatcher implements ApplicationListener<ContextRefreshedEvent> {
     private Map<Integer, MessageController> messageControllers;
     Logger log = LoggerFactory.getLogger(getClass());
 
@@ -25,7 +26,7 @@ public class WSMessageDispatcher {
             log.info("收到客户端消息,messageType={},cmd={}", messageType, command);
         }
         //这里做一个特殊处理，如果不是登录消息，并且用户还没有登录，将连接直接断掉
-        if (messageType != 1 && messageType != MessageConst.Login.TYPE && session.reference == null) {
+        if (messageType != 1 && messageType != 1000 && session.reference == null) {
             session.close();
             return;
         }
@@ -56,5 +57,11 @@ public class WSMessageDispatcher {
         } else {
             log.warn("未被注册的消息,messageType={},cmd={}", messageType, command);
         }
+    }
+
+    @Override
+    public void onApplicationEvent(ContextRefreshedEvent event) {
+        messageControllers = MessageUtil.load(event.getApplicationContext());
+        GameSession.responseMap = MessageUtil.loadResponseMessage("org.alan");
     }
 }

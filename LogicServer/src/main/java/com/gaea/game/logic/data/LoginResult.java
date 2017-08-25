@@ -1,9 +1,9 @@
 package com.gaea.game.logic.data;
 
 import com.gaea.game.base.constant.GameResultEnum;
-import com.gaea.game.base.constant.MessageConst;
 import com.gaea.game.base.data.Player;
 import com.gaea.game.base.ws.WSMessage;
+import com.gaea.game.logic.constant.MessageConst;
 
 /**
  * Created on 2017/8/24.

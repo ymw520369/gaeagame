@@ -1,0 +1,122 @@
+2017-08-25 18:44:00 [main] INFO  - com.gaea.game.logic.LogicServer - Starting LogicServer on DESKTOP-B2NI8A2 with PID 8508 (E:\gaea\game\LogicServer\target\classes started by alan in E:\gaea\game\LogicServer)
+2017-08-25 18:44:00 [main] INFO  - com.gaea.game.logic.LogicServer - No active profile set, falling back to default profiles: default
+2017-08-25 18:44:00 [main] INFO  - org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@59474f18: startup date [Fri Aug 25 18:44:00 CST 2017]; root of context hierarchy
+2017-08-25 18:44:00 [background-preinit] INFO  - org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.5.Final
+2017-08-25 18:44:00 [main] WARN  - org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.parsing.BeanDefinitionParsingException: Configuration problem: @Bean method 'webSocketConfig' must not be private or final; change the method's modifiers to continue
+Offending resource: com.gaea.game.logic.LogicServer
+2017-08-25 18:44:00 [main] ERROR - org.springframework.beans.factory.support.DefaultListableBeanFactory - Destroy method on bean with name 'org.springframework.boot.autoconfigure.internalCachingMetadataReaderFactory' threw an exception
+java.lang.IllegalStateException: ApplicationEventMulticaster not initialized - call 'refresh' before multicasting events via the context: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@59474f18: startup date [Fri Aug 25 18:44:00 CST 2017]; root of context hierarchy
+	at org.springframework.context.support.AbstractApplicationContext.getApplicationEventMulticaster(AbstractApplicationContext.java:404)
+	at org.springframework.context.support.ApplicationListenerDetector.postProcessBeforeDestruction(ApplicationListenerDetector.java:97)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:253)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:578)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:554)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:961)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:523)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:968)
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1033)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:555)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:737)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:370)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:314)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1162)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1151)
+	at com.gaea.game.logic.LogicServer.main(LogicServer.java:19)
+2017-08-25 18:44:00 [main] ERROR - org.springframework.boot.SpringApplication - Application startup failed
+org.springframework.beans.factory.parsing.BeanDefinitionParsingException: Configuration problem: @Bean method 'webSocketConfig' must not be private or final; change the method's modifiers to continue
+Offending resource: com.gaea.game.logic.LogicServer
+	at org.springframework.beans.factory.parsing.FailFastProblemReporter.error(FailFastProblemReporter.java:70)
+	at org.springframework.context.annotation.BeanMethod.validate(BeanMethod.java:50)
+	at org.springframework.context.annotation.ConfigurationClass.validate(ConfigurationClass.java:219)
+	at org.springframework.context.annotation.ConfigurationClassParser.validate(ConfigurationClassParser.java:207)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:309)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:228)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:270)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:93)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:686)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:524)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:737)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:370)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:314)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1162)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1151)
+	at com.gaea.game.logic.LogicServer.main(LogicServer.java:19)
+2017-08-25 18:44:42 [main] INFO  - com.gaea.game.logic.LogicServer - Starting LogicServer on DESKTOP-B2NI8A2 with PID 5772 (E:\gaea\game\LogicServer\target\classes started by alan in E:\gaea\game\LogicServer)
+2017-08-25 18:44:42 [main] INFO  - com.gaea.game.logic.LogicServer - No active profile set, falling back to default profiles: default
+2017-08-25 18:44:43 [main] INFO  - org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@6771beb3: startup date [Fri Aug 25 18:44:43 CST 2017]; root of context hierarchy
+2017-08-25 18:44:43 [background-preinit] INFO  - org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.5.Final
+2017-08-25 18:44:43 [main] INFO  - org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2017-08-25 18:44:43 [main] INFO  - org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2017-08-25 18:44:44 [main] INFO  - org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http)
+2017-08-25 18:44:44 [main] INFO  - org.apache.catalina.core.StandardService - Starting service Tomcat
+2017-08-25 18:44:44 [main] INFO  - org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.14
+2017-08-25 18:44:44 [localhost-startStop-1] INFO  - org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2017-08-25 18:44:44 [localhost-startStop-1] INFO  - org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1145 ms
+2017-08-25 18:44:44 [localhost-startStop-1] INFO  - org.springframework.boot.web.servlet.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+2017-08-25 18:44:44 [localhost-startStop-1] INFO  - org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-08-25 18:44:44 [localhost-startStop-1] INFO  - org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-08-25 18:44:44 [localhost-startStop-1] INFO  - org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-08-25 18:44:44 [localhost-startStop-1] INFO  - org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2017-08-25 18:44:44 [main] WARN  - org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'roomMessageHandler': Unsatisfied dependency expressed through field 'roomManager'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'roomManager': Unsatisfied dependency expressed through field 'timerCenter'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.gaea.game.base.timer.TimerCenter' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2017-08-25 18:44:44 [main] INFO  - org.apache.catalina.core.StandardService - Stopping service Tomcat
+2017-08-25 18:44:44 [main] INFO  - org.springframework.boot.autoconfigure.logging.AutoConfigurationReportLoggingInitializer - 
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2017-08-25 18:44:44 [main] ERROR - org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field timerCenter in com.gaea.game.logic.room.RoomManager required a bean of type 'com.gaea.game.base.timer.TimerCenter' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.gaea.game.base.timer.TimerCenter' in your configuration.
+
+2017-08-25 18:45:35 [main] INFO  - com.gaea.game.logic.LogicServer - Starting LogicServer on DESKTOP-B2NI8A2 with PID 3636 (E:\gaea\game\LogicServer\target\classes started by alan in E:\gaea\game\LogicServer)
+2017-08-25 18:45:35 [main] INFO  - com.gaea.game.logic.LogicServer - No active profile set, falling back to default profiles: default
+2017-08-25 18:45:35 [main] INFO  - org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@6771beb3: startup date [Fri Aug 25 18:45:35 CST 2017]; root of context hierarchy
+2017-08-25 18:45:35 [background-preinit] INFO  - org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.5.Final
+2017-08-25 18:45:36 [main] INFO  - org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2017-08-25 18:45:36 [main] INFO  - org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2017-08-25 18:45:36 [main] INFO  - org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http)
+2017-08-25 18:45:36 [main] INFO  - org.apache.catalina.core.StandardService - Starting service Tomcat
+2017-08-25 18:45:36 [main] INFO  - org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.14
+2017-08-25 18:45:36 [localhost-startStop-1] INFO  - org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2017-08-25 18:45:36 [localhost-startStop-1] INFO  - org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1181 ms
+2017-08-25 18:45:36 [localhost-startStop-1] INFO  - org.springframework.boot.web.servlet.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+2017-08-25 18:45:36 [localhost-startStop-1] INFO  - org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-08-25 18:45:36 [localhost-startStop-1] INFO  - org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-08-25 18:45:36 [localhost-startStop-1] INFO  - org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-08-25 18:45:36 [localhost-startStop-1] INFO  - org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2017-08-25 18:45:37 [main] INFO  - com.gaea.game.base.config.RedisConfig - JedisConnectionFactory bean init success.
+2017-08-25 18:45:37 [main] INFO  - org.mongodb.driver.cluster - Cluster created with settings {hosts=[192.168.7.30:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2017-08-25 18:45:37 [cluster-ClusterId{value='599fffd13466d00e347d1993', description='null'}-192.168.7.30:27017] INFO  - org.mongodb.driver.connection - Opened connection [connectionId{localValue:1, serverValue:4}] to 192.168.7.30:27017
+2017-08-25 18:45:37 [cluster-ClusterId{value='599fffd13466d00e347d1993', description='null'}-192.168.7.30:27017] INFO  - org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=192.168.7.30:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[3, 4, 7]}, minWireVersion=0, maxWireVersion=5, maxDocumentSize=16777216, roundTripTimeNanos=1106490}
+2017-08-25 18:45:37 [main] WARN  - org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'webSocketConfig': Unsatisfied dependency expressed through field 'messageHandler'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.gaea.game.base.ws.WSMessageHandler' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2017-08-25 18:45:37 [main] WARN  - org.springframework.beans.factory.support.DisposableBeanAdapter - Invocation of destroy method 'close' failed on bean with name 'timerCenter': java.lang.NullPointerException
+2017-08-25 18:45:37 [main] INFO  - org.apache.catalina.core.StandardService - Stopping service Tomcat
+2017-08-25 18:45:37 [main] INFO  - org.springframework.boot.autoconfigure.logging.AutoConfigurationReportLoggingInitializer - 
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2017-08-25 18:45:37 [main] ERROR - org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field messageHandler in com.gaea.game.base.ws.WebSocketConfig required a bean of type 'com.gaea.game.base.ws.WSMessageHandler' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.gaea.game.base.ws.WSMessageHandler' in your configuration.
+

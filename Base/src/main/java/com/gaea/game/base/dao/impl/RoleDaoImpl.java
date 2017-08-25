@@ -6,8 +6,8 @@
  */
 package com.gaea.game.base.dao.impl;
 
-import com.gaya.game.dao.RoleDao;
-import com.gaya.game.data.Role;
+import com.gaea.game.base.dao.RoleDao;
+import com.gaea.game.base.data.Role;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

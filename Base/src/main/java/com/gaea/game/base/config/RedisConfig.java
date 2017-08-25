@@ -19,20 +19,20 @@ import redis.clients.jedis.JedisPoolConfig;
  * eamil mingweiyang@foxmail.com
  * date 2017/8/17
  */
-@Configuration("centerRedisConfig")
+@Configuration("redisConfig")
 @EnableAutoConfiguration
 public class RedisConfig {
 
     private static Logger log = LoggerFactory.getLogger(RedisConfig.class);
 
-    @Bean("centerJedisPoolConfig")
+    @Bean("jedisPoolConfig")
     @ConfigurationProperties(prefix = "center.redis")
     public JedisPoolConfig getRedisConfig() {
         JedisPoolConfig config = new JedisPoolConfig();
         return config;
     }
 
-    @Bean("centerJedisConnectionFactory")
+    @Bean("jedisConnectionFactory")
     @ConfigurationProperties(prefix = "center.redis")
     public JedisConnectionFactory getConnectionFactory() {
         JedisConnectionFactory factory = new JedisConnectionFactory();
@@ -43,7 +43,7 @@ public class RedisConfig {
     }
 
 
-    @Bean("centerRedisTemplate")
+    @Bean("redisTemplate")
     public <T> RedisTemplate<String, T> redisTemplate() {
         RedisTemplate<String, T> template = new RedisTemplate<>();
         template.setConnectionFactory(getConnectionFactory());

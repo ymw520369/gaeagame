@@ -6,9 +6,9 @@
  */
 package com.gaea.game.base.dao.uid.impl;
 
-import com.gaya.game.dao.uid.Uid;
-import com.gaya.game.dao.uid.UidDao;
-import com.gaya.game.dao.uid.UidTypeEnum;
+import com.gaea.game.base.dao.uid.Uid;
+import com.gaea.game.base.dao.uid.UidDao;
+import com.gaea.game.base.dao.uid.UidTypeEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.data.mongodb.core.FindAndModifyOptions;
@@ -16,11 +16,13 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
+import org.springframework.stereotype.Repository;
 
 /**
  * @author Alan
  * @since 1.0
  */
+@Repository
 public class UidDaoImpl implements UidDao, CommandLineRunner {
 
     @Autowired

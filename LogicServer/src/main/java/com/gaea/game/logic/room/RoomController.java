@@ -1,7 +1,9 @@
 package com.gaea.game.logic.room;
 
-import com.gaea.game.base.data.PlayerController;
-import com.gaea.game.logic.data.RoomType;
+import com.gaea.game.logic.data.GameInfo;
+import com.gaea.game.logic.data.GameType;
+import com.gaea.game.logic.data.PlayerController;
+import com.gaea.game.logic.lhd.GameController;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -14,16 +16,18 @@ import java.util.concurrent.ConcurrentHashMap;
  * @author Alan
  * @since 1.0
  */
-public abstract class RoomController {
+public class RoomController {
     /* 房间房主ID*/
-    protected long owner;
+    public long owner;
     /* 房间类型*/
-    protected RoomType roomType;
+    public GameType roomType;
     /* 房间的唯一ID*/
-    protected long uid;
-    protected Map<Long, PlayerController> roomPlayers = new ConcurrentHashMap<>();
+    public long uid;
+    public Map<Long, PlayerController> roomPlayers = new ConcurrentHashMap<>();
 
-    public RoomController(PlayerController ownerController, RoomType roomType, long uid) {
+    GameController gameController;
+
+    public RoomController(PlayerController ownerController, GameType roomType, long uid) {
         this.owner = ownerController.playerId();
         this.roomType = roomType;
         this.uid = uid;
@@ -37,6 +41,8 @@ public abstract class RoomController {
      */
     public void joinRoom(PlayerController playerController) {
         roomPlayers.put(playerController.playerId(), playerController);
+        GameInfo gameInfo = gameController.getGameInfo();
+        sendMessage(playerController, gameInfo);
     }
 
     /**
@@ -46,6 +52,38 @@ public abstract class RoomController {
      */
     public void exitRoom(PlayerController playerController) {
         roomPlayers.remove(playerController.playerId());
+        playerController.roomController = null;
     }
 
+    /**
+     * 广播消息
+     *
+     * @param msg
+     */
+    public void broadcast(Object msg) {
+        roomPlayers.values().forEach(pc -> sendMessage(pc, msg));
+    }
+
+    /**
+     * 向指定玩家发送消息
+     *
+     * @param playerController
+     * @param msg
+     */
+    public void sendMessage(PlayerController playerController, Object msg) {
+        playerController.session.send(msg);
+    }
+
+    /**
+     * 向指定玩家发送消息
+     *
+     * @param playerId
+     * @param msg
+     */
+    public void sendMessage(long playerId, Object msg) {
+        PlayerController playerController = roomPlayers.get(playerId);
+        if (playerController != null) {
+            sendMessage(playerController, msg);
+        }
+    }
 }
