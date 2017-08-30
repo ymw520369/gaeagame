@@ -1,5 +1,7 @@
 package com.gaea.game.logic.lhd;
 
+import com.gaea.game.base.ws.WSMessage;
+
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
@@ -13,6 +15,7 @@ import java.util.concurrent.atomic.AtomicLong;
  * @author Alan
  * @since 1.0
  */
+@WSMessage
 public class BetArea {
     public interface Type {
         int LONG_AREA = 1, HE_AREA = 2, HU_AREA = 3;
@@ -23,8 +26,9 @@ public class BetArea {
     /* 赔率*/
     public float odds;
     /* 押注总金额*/
-    public AtomicLong totalBet = new AtomicLong();
-
+    public transient AtomicLong totalBet = new AtomicLong();
+    /* 押注总金额*/
+    private long totalBetMoney;
     /* 该用户押注金额，该字段仅用于数据传输*/
     public long playerBet;
 

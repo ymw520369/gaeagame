@@ -10,6 +10,7 @@ import com.gaea.game.base.ws.MessageType;
 import com.gaea.game.logic.constant.MessageConst;
 import com.gaea.game.logic.data.LoginResult;
 import com.gaea.game.logic.data.PlayerController;
+import com.gaea.game.logic.manager.LogicManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.HashOperations;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -24,12 +25,14 @@ import org.springframework.data.redis.core.RedisTemplate;
 public class LoginController {
     @Autowired
     private RedisTemplate<String, String> redisTemplate;
+    @Autowired
+    private LogicManager logicManager;
 
     @Command(MessageConst.Login.REQ_VERTIFY)
     public void login(GameSession session, Credential credential) {
         HashOperations<String, Long, Player> hashOperations = redisTemplate.opsForHash();
         Player player = hashOperations.get(RedisKey.ONLINE_PLAYER, credential.playerId);
-        if (player == null || credential == null) {
+        if (player == null) {
             sendLoginResult(session, GameResultEnum.FAILURE, null);
         }
         if (credential.certifyToken.equals(player.certifyToken)) {
@@ -37,6 +40,7 @@ public class LoginController {
             playerController.session = session;
             session.setReference(playerController);
             sendLoginResult(session, GameResultEnum.SUCCESS, player);
+            logicManager.playerOnline(playerController);
         } else {
             sendLoginResult(session, GameResultEnum.FAILURE, null);
         }

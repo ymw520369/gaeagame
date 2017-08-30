@@ -1,7 +1,8 @@
 package com.gaea.game.logic.game;
 
+import com.gaea.game.logic.sample.poker.Poker;
+
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -15,16 +16,16 @@ import java.util.List;
 public interface PokerHelper {
     int HONGTAO = 1, HEITAO = 2, MEIHUA = 3, FANGPIAN = 4, JOKER = 5;
 
-    static List<PokerCard> randomCard(int count, boolean needJoker) {
-        List<PokerCard> cardList = Arrays.asList(PokerCard.values());
-        List<PokerCard> selectCards = new ArrayList<>();
+    static List<Poker> randomCard(int count, boolean needJoker) {
+        List<Poker> cardList = new ArrayList<>(Poker.factory.getAllSamples());
+        List<Poker> selectCards = new ArrayList<>();
         while (selectCards.size() < count) {
             int index = (int) (cardList.size() * Math.random());
-            PokerCard pokerCard = cardList.get(index);
-            if (!needJoker && pokerCard.color == JOKER) {
-                cardList.remove(pokerCard);
+            Poker Poker = cardList.get(index);
+            if (!needJoker && Poker.type == JOKER) {
+                cardList.remove(Poker);
             } else {
-                selectCards.add(pokerCard);
+                selectCards.add(Poker);
             }
         }
         return selectCards;

@@ -5,9 +5,11 @@ import com.gaea.game.base.timer.TimerEvent;
 import com.gaea.game.base.timer.TimerListener;
 import com.gaea.game.logic.data.GameInfo;
 import com.gaea.game.logic.data.PlayerController;
-import com.gaea.game.logic.game.PokerCard;
 import com.gaea.game.logic.game.PokerHelper;
+import com.gaea.game.logic.sample.poker.Poker;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -26,9 +28,9 @@ public class LHDGameController extends GameController implements TimerListener {
     /* 当前状态*/
     protected int currentStatus;
     /* 龙牌*/
-    protected PokerCard longCard;
+    protected Poker longCard;
     /* 虎牌*/
-    protected PokerCard huCard;
+    protected Poker huCard;
 
     /* 押注区*/
     protected BetArea[] betAreas = {new BetArea(LHDConfig.longDdds), new BetArea(LHDConfig.heDdds), new BetArea(LHDConfig.huDdds)};
@@ -57,14 +59,14 @@ public class LHDGameController extends GameController implements TimerListener {
     }
 
     public void endBet() {
-        List<PokerCard> cards = PokerHelper.randomCard(2, false);
+        List<Poker> cards = PokerHelper.randomCard(2, false);
         longCard = cards.get(0);
         huCard = cards.get(1);
 
         //龙赢
-        if (longCard.number > huCard.number) {
+        if (longCard.value > huCard.value) {
             //betLong.playersBet
-        } else if (longCard.number < huCard.number) {//虎赢
+        } else if (longCard.value < huCard.value) {//虎赢
 
         } else {//和
 
@@ -111,7 +113,7 @@ public class LHDGameController extends GameController implements TimerListener {
         gameInfo.currentStatus = currentStatus;
         gameInfo.longCard = longCard;
         gameInfo.huCard = huCard;
-        gameInfo.betAreas = betAreas;
+        gameInfo.betAreas = new ArrayList<>(Arrays.asList(betAreas));
         return gameInfo;
     }
 }

@@ -3,7 +3,9 @@ package com.gaea.game.logic.lhd;
 import com.gaea.game.base.ws.WSMessage;
 import com.gaea.game.logic.constant.MessageConst;
 import com.gaea.game.logic.data.GameInfo;
-import com.gaea.game.logic.game.PokerCard;
+import com.gaea.game.logic.sample.poker.Poker;
+
+import java.util.List;
 
 /**
  * Created on 2017/8/25.
@@ -18,9 +20,9 @@ public class LHDGameInfo extends GameInfo {
     /* 当前状态*/
     protected int currentStatus;
     /* 龙牌*/
-    protected PokerCard longCard;
+    protected Poker longCard;
     /* 虎牌*/
-    protected PokerCard huCard;
+    protected Poker huCard;
     /* 押注区信息*/
-    protected BetArea[] betAreas;
+    protected List<BetArea> betAreas;
 }

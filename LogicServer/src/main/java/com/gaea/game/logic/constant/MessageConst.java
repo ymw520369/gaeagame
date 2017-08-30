@@ -14,16 +14,16 @@ public interface MessageConst {
     }
 
     interface ROOM {
-        int TYPE = 1001;
-        int REQ_CREATE_ROOM = 1;
-        int RESP_CREATE_ROOM = 2;
-        int REQ_EXIT_ROOM = 3;
-        int RESP_EXIT_ROOM = 4;
+        int TYPE = 1100;
+        int REQ_CREATE_ROOM = 1101;
+        int RESP_CREATE_ROOM = 1102;
+        int REQ_EXIT_ROOM = 1103;
+        int RESP_EXIT_ROOM = 1104;
     }
 
     interface LHD {
-        int TYPE = 1101;
-        int REQ_BET = 1;
-        int RESP_GAME_INFO = 2;
+        int TYPE = 1200;
+        int REQ_BET = 1201;
+        int RESP_GAME_INFO = 1202;
     }
 }
