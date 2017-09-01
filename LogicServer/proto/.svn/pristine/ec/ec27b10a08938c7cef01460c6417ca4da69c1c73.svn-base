@@ -1,0 +1,11 @@
+package com.gaea.game.logic;
+
+
+option java_package = "com.gaea.game.base.data";
+option java_outer_classname="VertifyInfo";
+
+message VertifyInfo {
+  optional string token = 1;
+  optional string uuid = 2;
+}
+

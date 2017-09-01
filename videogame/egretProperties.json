@@ -1,0 +1,54 @@
+{
+	"native": {
+		"path_ignore": [],
+		"android_as_path": "../../../Desktop/catdog"
+	},
+	"publish": {
+		"web": 0,
+		"native": 1,
+		"path": "bin-release"
+	},
+	"egret_version": "5.0.4",
+	"template": {},
+	"eui": {
+		"exmlRoot": "resource/eui_skins",
+		"themes": [
+			"resource/default.thm.json"
+		],
+		"exmlPublishPolicy": "content"
+	},
+	"modules": [
+		{
+			"name": "egret"
+		},
+		{
+			"name": "game"
+		},
+		{
+			"name": "res"
+		},
+		{
+			"name": "eui"
+		},
+		{
+			"name": "tween"
+		},
+		{
+			"name": "socket"
+		},
+		{
+			"name": "dragonBones"
+		},
+		{
+			"name": "egret3d"
+		},
+		{
+			"name": "promise",
+			"path": "./promise"
+		},
+		{
+			"name": "protobuf",
+			"path": "./extensions/protoBuf"
+		}
+	]
+}

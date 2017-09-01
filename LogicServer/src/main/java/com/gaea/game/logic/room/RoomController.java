@@ -1,9 +1,10 @@
 package com.gaea.game.logic.room;
 
+import com.gaea.game.logic.constant.GameResultEnum;
 import com.gaea.game.logic.data.GameInfo;
-import com.gaea.game.logic.data.GameType;
 import com.gaea.game.logic.data.PlayerController;
-import com.gaea.game.logic.lhd.GameController;
+import com.gaea.game.logic.game.GameController;
+import com.gaea.game.logic.sample.game.GameConfigInfo;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -18,20 +19,22 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class RoomController {
     /* 房间房主ID*/
-    public long owner;
+    public long owner = -1;
     /* 房间类型*/
-    public GameType roomType;
+    public GameConfigInfo gameStaticInfo;
     /* 房间的唯一ID*/
     public long uid;
     public Map<Long, PlayerController> roomPlayers = new ConcurrentHashMap<>();
 
-    GameController gameController;
+    public GameController gameController;
 
-    public RoomController(PlayerController ownerController, GameType roomType, long uid) {
-        this.owner = ownerController.playerId();
-        this.roomType = roomType;
+    public RoomController(PlayerController ownerController, GameConfigInfo gameStaticInfo, long uid) {
+        if (ownerController != null) {
+            this.owner = ownerController.playerId();
+            roomPlayers.put(owner, ownerController);
+        }
+        this.gameStaticInfo = gameStaticInfo;
         this.uid = uid;
-        roomPlayers.put(owner, ownerController);
     }
 
     /**
@@ -50,9 +53,10 @@ public class RoomController {
      *
      * @param playerController
      */
-    public void exitRoom(PlayerController playerController) {
+    public GameResultEnum exitRoom(PlayerController playerController) {
         roomPlayers.remove(playerController.playerId());
         playerController.roomController = null;
+        return GameResultEnum.SUCCESS;
     }
 
     /**

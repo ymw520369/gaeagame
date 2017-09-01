@@ -18,6 +18,7 @@ logic:
   wsAddress: ws://${logic.host}:${logic.port}/logic/ws
   maxNum: 5000
   centerRegisterUrl: http://localhost:8081/center/node/register
+  debug: true
 
 server:
  port: 8082

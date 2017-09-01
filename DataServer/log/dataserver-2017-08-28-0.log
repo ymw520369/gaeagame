@@ -1,0 +1,317 @@
+2017-08-28 11:22:32 [main] INFO  - com.gaea.game.dataserver.DataServer - Starting DataServer on DESKTOP-B2NI8A2 with PID 2576 (E:\gaea\game\DataServer\target\classes started by alan in E:\gaea\game\DataServer)
+2017-08-28 11:22:32 [main] INFO  - com.gaea.game.dataserver.DataServer - No active profile set, falling back to default profiles: default
+2017-08-28 11:22:32 [main] INFO  - org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7c7b252e: startup date [Mon Aug 28 11:22:32 CST 2017]; root of context hierarchy
+2017-08-28 11:22:32 [main] INFO  - org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2017-08-28 11:22:32 [main] INFO  - org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2017-08-28 11:22:33 [main] INFO  - org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http)
+2017-08-28 11:22:33 [main] INFO  - org.apache.catalina.core.StandardService - Starting service Tomcat
+2017-08-28 11:22:33 [main] INFO  - org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.14
+2017-08-28 11:22:33 [localhost-startStop-1] INFO  - org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2017-08-28 11:22:33 [localhost-startStop-1] INFO  - org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1053 ms
+2017-08-28 11:22:33 [localhost-startStop-1] INFO  - org.springframework.boot.web.servlet.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+2017-08-28 11:22:33 [localhost-startStop-1] INFO  - org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-08-28 11:22:33 [localhost-startStop-1] INFO  - org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-08-28 11:22:33 [localhost-startStop-1] INFO  - org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-08-28 11:22:33 [localhost-startStop-1] INFO  - org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2017-08-28 11:22:33 [main] INFO  - com.gaea.game.base.config.RedisConfig - JedisConnectionFactory bean init success.
+2017-08-28 11:22:33 [main] INFO  - org.mongodb.driver.cluster - Cluster created with settings {hosts=[192.168.7.30:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2017-08-28 11:22:33 [cluster-ClusterId{value='59a38c793466d00a1045184b', description='null'}-192.168.7.30:27017] INFO  - org.mongodb.driver.connection - Opened connection [connectionId{localValue:1, serverValue:15}] to 192.168.7.30:27017
+2017-08-28 11:22:33 [cluster-ClusterId{value='59a38c793466d00a1045184b', description='null'}-192.168.7.30:27017] INFO  - org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=192.168.7.30:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[3, 4, 7]}, minWireVersion=0, maxWireVersion=5, maxDocumentSize=16777216, roundTripTimeNanos=1074632}
+2017-08-28 11:22:34 [main] INFO  - org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7c7b252e: startup date [Mon Aug 28 11:22:32 CST 2017]; root of context hierarchy
+2017-08-28 11:22:34 [main] INFO  - org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/vertify/credential]}" onto public com.gaea.game.dataserver.data.VertifyResult com.gaea.game.dataserver.controller.VertifyController.vertify(com.gaea.game.base.data.VertifyInfo)
+2017-08-28 11:22:34 [main] INFO  - org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-08-28 11:22:34 [main] INFO  - org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-08-28 11:22:34 [main] INFO  - org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-08-28 11:22:34 [main] INFO  - org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-08-28 11:22:34 [main] INFO  - org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-08-28 11:22:34 [main] INFO  - org.springframework.jmx.export.annotation.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2017-08-28 11:22:34 [main] INFO  - org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2017-08-28 11:22:34 [main] INFO  - org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2017-08-28 11:22:34 [main] ERROR - org.apache.coyote.http11.Http11NioProtocol - Failed to start end point associated with ProtocolHandler ["http-nio-8080"]
+java.net.BindException: Address already in use: bind
+	at sun.nio.ch.Net.bind0(Native Method)
+	at sun.nio.ch.Net.bind(Net.java:433)
+	at sun.nio.ch.Net.bind(Net.java:425)
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223)
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74)
+	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:210)
+	at org.apache.tomcat.util.net.AbstractEndpoint.start(AbstractEndpoint.java:978)
+	at org.apache.coyote.AbstractProtocol.start(AbstractProtocol.java:628)
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:993)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:225)
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.addPreviouslyRemovedConnectors(TomcatEmbeddedServletContainer.java:247)
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.start(TomcatEmbeddedServletContainer.java:190)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.startEmbeddedServletContainer(EmbeddedWebApplicationContext.java:297)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.finishRefresh(EmbeddedWebApplicationContext.java:145)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:545)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:737)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:370)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:314)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1162)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1151)
+	at com.gaea.game.dataserver.DataServer.main(DataServer.java:17)
+2017-08-28 11:22:34 [main] ERROR - org.apache.catalina.core.StandardService - Failed to start connector [Connector[HTTP/1.1-8080]]
+org.apache.catalina.LifecycleException: Failed to start component [Connector[HTTP/1.1-8080]]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:167)
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:225)
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.addPreviouslyRemovedConnectors(TomcatEmbeddedServletContainer.java:247)
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.start(TomcatEmbeddedServletContainer.java:190)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.startEmbeddedServletContainer(EmbeddedWebApplicationContext.java:297)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.finishRefresh(EmbeddedWebApplicationContext.java:145)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:545)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:737)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:370)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:314)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1162)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1151)
+	at com.gaea.game.dataserver.DataServer.main(DataServer.java:17)
+Caused by: org.apache.catalina.LifecycleException: service.getName(): "Tomcat";  Protocol handler start failed
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1000)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+	... 13 common frames omitted
+Caused by: java.net.BindException: Address already in use: bind
+	at sun.nio.ch.Net.bind0(Native Method)
+	at sun.nio.ch.Net.bind(Net.java:433)
+	at sun.nio.ch.Net.bind(Net.java:425)
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223)
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74)
+	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:210)
+	at org.apache.tomcat.util.net.AbstractEndpoint.start(AbstractEndpoint.java:978)
+	at org.apache.coyote.AbstractProtocol.start(AbstractProtocol.java:628)
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:993)
+	... 14 common frames omitted
+2017-08-28 11:22:34 [main] INFO  - org.apache.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2017-08-28 11:22:34 [main] INFO  - org.apache.catalina.core.StandardService - Stopping service Tomcat
+2017-08-28 11:22:34 [main] INFO  - org.apache.catalina.util.LifecycleBase - The stop() method was called on component [StandardServer[-1]] after stop() had already been called. The second call will be ignored.
+2017-08-28 11:22:34 [main] INFO  - org.apache.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2017-08-28 11:22:34 [main] INFO  - org.apache.coyote.http11.Http11NioProtocol - Destroying ProtocolHandler ["http-nio-8080"]
+2017-08-28 11:22:34 [main] INFO  - org.springframework.boot.autoconfigure.logging.AutoConfigurationReportLoggingInitializer - 
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2017-08-28 11:22:34 [main] ERROR - org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The Tomcat connector configured to listen on port 8080 failed to start. The port may already be in use or the connector may be misconfigured.
+
+Action:
+
+Verify the connector's configuration, identify and stop any process that's listening on port 8080, or configure this application to listen on another port.
+
+2017-08-28 11:22:34 [main] INFO  - org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext - Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7c7b252e: startup date [Mon Aug 28 11:22:32 CST 2017]; root of context hierarchy
+2017-08-28 11:22:34 [main] INFO  - org.springframework.jmx.export.annotation.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+2017-08-28 11:28:41 [main] INFO  - com.gaea.game.dataserver.DataServer - Starting DataServer on DESKTOP-B2NI8A2 with PID 5040 (E:\gaea\game\DataServer\target\classes started by alan in E:\gaea\game\DataServer)
+2017-08-28 11:28:41 [main] INFO  - com.gaea.game.dataserver.DataServer - No active profile set, falling back to default profiles: default
+2017-08-28 11:28:41 [main] INFO  - org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7c7b252e: startup date [Mon Aug 28 11:28:41 CST 2017]; root of context hierarchy
+2017-08-28 11:28:42 [main] INFO  - org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2017-08-28 11:28:42 [main] INFO  - org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2017-08-28 11:28:42 [main] INFO  - org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http)
+2017-08-28 11:28:42 [main] INFO  - org.apache.catalina.core.StandardService - Starting service Tomcat
+2017-08-28 11:28:42 [main] INFO  - org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.14
+2017-08-28 11:28:42 [localhost-startStop-1] INFO  - org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2017-08-28 11:28:42 [localhost-startStop-1] INFO  - org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1044 ms
+2017-08-28 11:28:42 [localhost-startStop-1] INFO  - org.springframework.boot.web.servlet.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+2017-08-28 11:28:42 [localhost-startStop-1] INFO  - org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-08-28 11:28:42 [localhost-startStop-1] INFO  - org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-08-28 11:28:42 [localhost-startStop-1] INFO  - org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-08-28 11:28:42 [localhost-startStop-1] INFO  - org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2017-08-28 11:28:42 [main] INFO  - com.gaea.game.base.config.RedisConfig - JedisConnectionFactory bean init success.
+2017-08-28 11:28:43 [main] INFO  - org.mongodb.driver.cluster - Cluster created with settings {hosts=[192.168.7.30:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2017-08-28 11:28:43 [cluster-ClusterId{value='59a38deb3466d013b03365be', description='null'}-192.168.7.30:27017] INFO  - org.mongodb.driver.connection - Opened connection [connectionId{localValue:1, serverValue:16}] to 192.168.7.30:27017
+2017-08-28 11:28:43 [cluster-ClusterId{value='59a38deb3466d013b03365be', description='null'}-192.168.7.30:27017] INFO  - org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=192.168.7.30:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[3, 4, 7]}, minWireVersion=0, maxWireVersion=5, maxDocumentSize=16777216, roundTripTimeNanos=870685}
+2017-08-28 11:28:43 [main] INFO  - org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7c7b252e: startup date [Mon Aug 28 11:28:41 CST 2017]; root of context hierarchy
+2017-08-28 11:28:43 [main] INFO  - org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/vertify/credential]}" onto public com.gaea.game.dataserver.data.VertifyResult com.gaea.game.dataserver.controller.VertifyController.vertify(com.gaea.game.base.data.VertifyInfo)
+2017-08-28 11:28:43 [main] INFO  - org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-08-28 11:28:43 [main] INFO  - org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-08-28 11:28:43 [main] INFO  - org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-08-28 11:28:43 [main] INFO  - org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-08-28 11:28:43 [main] INFO  - org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-08-28 11:28:43 [main] INFO  - org.springframework.jmx.export.annotation.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2017-08-28 11:28:43 [main] INFO  - org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2017-08-28 11:28:43 [main] INFO  - org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2017-08-28 11:28:43 [main] ERROR - org.apache.coyote.http11.Http11NioProtocol - Failed to start end point associated with ProtocolHandler ["http-nio-8080"]
+java.net.BindException: Address already in use: bind
+	at sun.nio.ch.Net.bind0(Native Method)
+	at sun.nio.ch.Net.bind(Net.java:433)
+	at sun.nio.ch.Net.bind(Net.java:425)
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223)
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74)
+	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:210)
+	at org.apache.tomcat.util.net.AbstractEndpoint.start(AbstractEndpoint.java:978)
+	at org.apache.coyote.AbstractProtocol.start(AbstractProtocol.java:628)
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:993)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:225)
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.addPreviouslyRemovedConnectors(TomcatEmbeddedServletContainer.java:247)
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.start(TomcatEmbeddedServletContainer.java:190)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.startEmbeddedServletContainer(EmbeddedWebApplicationContext.java:297)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.finishRefresh(EmbeddedWebApplicationContext.java:145)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:545)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:737)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:370)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:314)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1162)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1151)
+	at com.gaea.game.dataserver.DataServer.main(DataServer.java:17)
+2017-08-28 11:28:43 [main] ERROR - org.apache.catalina.core.StandardService - Failed to start connector [Connector[HTTP/1.1-8080]]
+org.apache.catalina.LifecycleException: Failed to start component [Connector[HTTP/1.1-8080]]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:167)
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:225)
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.addPreviouslyRemovedConnectors(TomcatEmbeddedServletContainer.java:247)
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.start(TomcatEmbeddedServletContainer.java:190)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.startEmbeddedServletContainer(EmbeddedWebApplicationContext.java:297)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.finishRefresh(EmbeddedWebApplicationContext.java:145)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:545)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:737)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:370)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:314)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1162)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1151)
+	at com.gaea.game.dataserver.DataServer.main(DataServer.java:17)
+Caused by: org.apache.catalina.LifecycleException: service.getName(): "Tomcat";  Protocol handler start failed
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1000)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+	... 13 common frames omitted
+Caused by: java.net.BindException: Address already in use: bind
+	at sun.nio.ch.Net.bind0(Native Method)
+	at sun.nio.ch.Net.bind(Net.java:433)
+	at sun.nio.ch.Net.bind(Net.java:425)
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223)
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74)
+	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:210)
+	at org.apache.tomcat.util.net.AbstractEndpoint.start(AbstractEndpoint.java:978)
+	at org.apache.coyote.AbstractProtocol.start(AbstractProtocol.java:628)
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:993)
+	... 14 common frames omitted
+2017-08-28 11:28:43 [main] INFO  - org.apache.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2017-08-28 11:28:43 [main] INFO  - org.apache.catalina.core.StandardService - Stopping service Tomcat
+2017-08-28 11:28:43 [main] INFO  - org.apache.catalina.util.LifecycleBase - The stop() method was called on component [StandardServer[-1]] after stop() had already been called. The second call will be ignored.
+2017-08-28 11:28:43 [main] INFO  - org.apache.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2017-08-28 11:28:43 [main] INFO  - org.apache.coyote.http11.Http11NioProtocol - Destroying ProtocolHandler ["http-nio-8080"]
+2017-08-28 11:28:43 [main] INFO  - org.springframework.boot.autoconfigure.logging.AutoConfigurationReportLoggingInitializer - 
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2017-08-28 11:28:43 [main] ERROR - org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The Tomcat connector configured to listen on port 8080 failed to start. The port may already be in use or the connector may be misconfigured.
+
+Action:
+
+Verify the connector's configuration, identify and stop any process that's listening on port 8080, or configure this application to listen on another port.
+
+2017-08-28 11:28:43 [main] INFO  - org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext - Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7c7b252e: startup date [Mon Aug 28 11:28:41 CST 2017]; root of context hierarchy
+2017-08-28 11:28:43 [main] INFO  - org.springframework.jmx.export.annotation.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+2017-08-28 11:47:51 [main] INFO  - com.gaea.game.dataserver.DataServer - Starting DataServer on DESKTOP-B2NI8A2 with PID 3388 (E:\gaea\game\DataServer\target\classes started by alan in E:\gaea\game\DataServer)
+2017-08-28 11:47:51 [main] INFO  - com.gaea.game.dataserver.DataServer - No active profile set, falling back to default profiles: default
+2017-08-28 11:47:51 [main] INFO  - org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1aafa419: startup date [Mon Aug 28 11:47:51 CST 2017]; root of context hierarchy
+2017-08-28 11:47:52 [main] INFO  - org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2017-08-28 11:47:52 [main] INFO  - org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2017-08-28 11:47:52 [main] INFO  - org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8081 (http)
+2017-08-28 11:47:52 [main] INFO  - org.apache.catalina.core.StandardService - Starting service Tomcat
+2017-08-28 11:47:52 [main] INFO  - org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.14
+2017-08-28 11:47:52 [localhost-startStop-1] INFO  - org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/logic] - Initializing Spring embedded WebApplicationContext
+2017-08-28 11:47:52 [localhost-startStop-1] INFO  - org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1099 ms
+2017-08-28 11:47:52 [localhost-startStop-1] INFO  - org.springframework.boot.web.servlet.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+2017-08-28 11:47:52 [localhost-startStop-1] INFO  - org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-08-28 11:47:52 [localhost-startStop-1] INFO  - org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-08-28 11:47:52 [localhost-startStop-1] INFO  - org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-08-28 11:47:52 [localhost-startStop-1] INFO  - org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2017-08-28 11:47:52 [main] INFO  - com.gaea.game.base.config.RedisConfig - JedisConnectionFactory bean init success.
+2017-08-28 11:47:52 [main] INFO  - org.mongodb.driver.cluster - Cluster created with settings {hosts=[192.168.7.30:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2017-08-28 11:47:52 [cluster-ClusterId{value='59a392683466d00d3c343f1a', description='null'}-192.168.7.30:27017] INFO  - org.mongodb.driver.connection - Opened connection [connectionId{localValue:1, serverValue:17}] to 192.168.7.30:27017
+2017-08-28 11:47:52 [cluster-ClusterId{value='59a392683466d00d3c343f1a', description='null'}-192.168.7.30:27017] INFO  - org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=192.168.7.30:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[3, 4, 7]}, minWireVersion=0, maxWireVersion=5, maxDocumentSize=16777216, roundTripTimeNanos=1296499}
+2017-08-28 11:47:53 [main] INFO  - org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1aafa419: startup date [Mon Aug 28 11:47:51 CST 2017]; root of context hierarchy
+2017-08-28 11:47:53 [main] INFO  - org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/vertify/credential]}" onto public com.gaea.game.dataserver.data.VertifyResult com.gaea.game.dataserver.controller.VertifyController.vertify(com.gaea.game.base.data.VertifyInfo)
+2017-08-28 11:47:53 [main] INFO  - org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-08-28 11:47:53 [main] INFO  - org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-08-28 11:47:53 [main] INFO  - org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-08-28 11:47:53 [main] INFO  - org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-08-28 11:47:53 [main] INFO  - org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-08-28 11:47:53 [main] INFO  - org.springframework.jmx.export.annotation.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2017-08-28 11:47:53 [main] INFO  - org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-0.0.0.0-8081"]
+2017-08-28 11:47:53 [main] INFO  - org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-0.0.0.0-8081"]
+2017-08-28 11:47:53 [main] INFO  - org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2017-08-28 11:47:53 [main] INFO  - org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8081 (http)
+2017-08-28 11:47:53 [main] INFO  - org.mongodb.driver.connection - Opened connection [connectionId{localValue:2, serverValue:18}] to 192.168.7.30:27017
+2017-08-28 11:47:53 [main] INFO  - com.gaea.game.dataserver.DataServer - Started DataServer in 2.72 seconds (JVM running for 3.013)
+2017-08-28 12:02:41 [main] INFO  - com.gaea.game.dataserver.DataServer - Starting DataServer on DESKTOP-B2NI8A2 with PID 3628 (E:\gaea\game\DataServer\target\classes started by alan in E:\gaea\game\DataServer)
+2017-08-28 12:02:41 [main] INFO  - com.gaea.game.dataserver.DataServer - No active profile set, falling back to default profiles: default
+2017-08-28 12:02:41 [main] INFO  - org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1aafa419: startup date [Mon Aug 28 12:02:41 CST 2017]; root of context hierarchy
+2017-08-28 12:02:42 [main] INFO  - org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2017-08-28 12:02:42 [main] INFO  - org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2017-08-28 12:02:42 [main] INFO  - org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8081 (http)
+2017-08-28 12:02:42 [main] INFO  - org.apache.catalina.core.StandardService - Starting service Tomcat
+2017-08-28 12:02:42 [main] INFO  - org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.14
+2017-08-28 12:02:42 [localhost-startStop-1] INFO  - org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/logic] - Initializing Spring embedded WebApplicationContext
+2017-08-28 12:02:42 [localhost-startStop-1] INFO  - org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1185 ms
+2017-08-28 12:02:43 [localhost-startStop-1] INFO  - org.springframework.boot.web.servlet.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+2017-08-28 12:02:43 [localhost-startStop-1] INFO  - org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-08-28 12:02:43 [localhost-startStop-1] INFO  - org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-08-28 12:02:43 [localhost-startStop-1] INFO  - org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-08-28 12:02:43 [localhost-startStop-1] INFO  - org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2017-08-28 12:02:43 [main] INFO  - com.gaea.game.base.config.RedisConfig - JedisConnectionFactory bean init success.
+2017-08-28 12:02:43 [main] INFO  - org.mongodb.driver.cluster - Cluster created with settings {hosts=[192.168.7.30:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2017-08-28 12:02:43 [cluster-ClusterId{value='59a395e33466d00e2cd5253b', description='null'}-192.168.7.30:27017] INFO  - org.mongodb.driver.connection - Opened connection [connectionId{localValue:1, serverValue:21}] to 192.168.7.30:27017
+2017-08-28 12:02:43 [cluster-ClusterId{value='59a395e33466d00e2cd5253b', description='null'}-192.168.7.30:27017] INFO  - org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=192.168.7.30:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[3, 4, 7]}, minWireVersion=0, maxWireVersion=5, maxDocumentSize=16777216, roundTripTimeNanos=1089708}
+2017-08-28 12:02:43 [main] INFO  - org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1aafa419: startup date [Mon Aug 28 12:02:41 CST 2017]; root of context hierarchy
+2017-08-28 12:02:43 [main] INFO  - org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/vertify/credential]}" onto public com.gaea.game.dataserver.data.VertifyResult com.gaea.game.dataserver.controller.VertifyController.vertify(com.gaea.game.base.data.VertifyInfo)
+2017-08-28 12:02:43 [main] INFO  - org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-08-28 12:02:43 [main] INFO  - org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-08-28 12:02:43 [main] INFO  - org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-08-28 12:02:43 [main] INFO  - org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-08-28 12:02:43 [main] INFO  - org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-08-28 12:02:43 [main] INFO  - org.springframework.jmx.export.annotation.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2017-08-28 12:02:43 [main] INFO  - org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-0.0.0.0-8081"]
+2017-08-28 12:02:44 [main] INFO  - org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-0.0.0.0-8081"]
+2017-08-28 12:02:44 [main] INFO  - org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2017-08-28 12:02:44 [main] INFO  - org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8081 (http)
+2017-08-28 12:02:44 [main] INFO  - org.mongodb.driver.connection - Opened connection [connectionId{localValue:2, serverValue:22}] to 192.168.7.30:27017
+2017-08-28 12:02:44 [main] INFO  - com.gaea.game.dataserver.DataServer - Started DataServer in 2.775 seconds (JVM running for 3.104)
+2017-08-28 12:03:31 [main] INFO  - com.gaea.game.dataserver.DataServer - Starting DataServer on DESKTOP-B2NI8A2 with PID 2488 (E:\gaea\game\DataServer\target\classes started by alan in E:\gaea\game\DataServer)
+2017-08-28 12:03:31 [main] INFO  - com.gaea.game.dataserver.DataServer - No active profile set, falling back to default profiles: default
+2017-08-28 12:03:31 [main] INFO  - org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1aafa419: startup date [Mon Aug 28 12:03:31 CST 2017]; root of context hierarchy
+2017-08-28 12:03:31 [main] INFO  - org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2017-08-28 12:03:31 [main] INFO  - org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2017-08-28 12:03:32 [main] INFO  - org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8081 (http)
+2017-08-28 12:03:32 [main] INFO  - org.apache.catalina.core.StandardService - Starting service Tomcat
+2017-08-28 12:03:32 [main] INFO  - org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.14
+2017-08-28 12:03:32 [localhost-startStop-1] INFO  - org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/center] - Initializing Spring embedded WebApplicationContext
+2017-08-28 12:03:32 [localhost-startStop-1] INFO  - org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1071 ms
+2017-08-28 12:03:32 [localhost-startStop-1] INFO  - org.springframework.boot.web.servlet.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+2017-08-28 12:03:32 [localhost-startStop-1] INFO  - org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-08-28 12:03:32 [localhost-startStop-1] INFO  - org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-08-28 12:03:32 [localhost-startStop-1] INFO  - org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-08-28 12:03:32 [localhost-startStop-1] INFO  - org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2017-08-28 12:03:32 [main] INFO  - com.gaea.game.base.config.RedisConfig - JedisConnectionFactory bean init success.
+2017-08-28 12:03:32 [main] INFO  - org.mongodb.driver.cluster - Cluster created with settings {hosts=[192.168.7.30:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2017-08-28 12:03:32 [cluster-ClusterId{value='59a396143466d009b8fe4254', description='null'}-192.168.7.30:27017] INFO  - org.mongodb.driver.connection - Opened connection [connectionId{localValue:1, serverValue:23}] to 192.168.7.30:27017
+2017-08-28 12:03:32 [cluster-ClusterId{value='59a396143466d009b8fe4254', description='null'}-192.168.7.30:27017] INFO  - org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=192.168.7.30:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[3, 4, 7]}, minWireVersion=0, maxWireVersion=5, maxDocumentSize=16777216, roundTripTimeNanos=933263}
+2017-08-28 12:03:33 [main] INFO  - org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1aafa419: startup date [Mon Aug 28 12:03:31 CST 2017]; root of context hierarchy
+2017-08-28 12:03:33 [main] INFO  - org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/vertify/credential]}" onto public com.gaea.game.dataserver.data.VertifyResult com.gaea.game.dataserver.controller.VertifyController.vertify(com.gaea.game.base.data.VertifyInfo)
+2017-08-28 12:03:33 [main] INFO  - org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-08-28 12:03:33 [main] INFO  - org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-08-28 12:03:33 [main] INFO  - org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-08-28 12:03:33 [main] INFO  - org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-08-28 12:03:33 [main] INFO  - org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-08-28 12:03:33 [main] INFO  - org.springframework.jmx.export.annotation.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2017-08-28 12:03:33 [main] INFO  - org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-0.0.0.0-8081"]
+2017-08-28 12:03:33 [main] INFO  - org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-0.0.0.0-8081"]
+2017-08-28 12:03:33 [main] INFO  - org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2017-08-28 12:03:33 [main] INFO  - org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8081 (http)
+2017-08-28 12:03:33 [main] INFO  - org.mongodb.driver.connection - Opened connection [connectionId{localValue:2, serverValue:24}] to 192.168.7.30:27017
+2017-08-28 12:03:33 [main] INFO  - com.gaea.game.dataserver.DataServer - Started DataServer in 2.603 seconds (JVM running for 2.897)

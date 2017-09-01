@@ -1,0 +1,26 @@
+[
+	{
+		"native_language": "cn",
+		"use_global_mode": true,
+		"ignore_empty": true,
+		"auto_build": true,
+		"namespace": "xls",
+		"resource_root": "resource/json/",
+		"merge_ts": false,
+		"source": "../../src/xls",
+		"language_dictionary": "en|英文,tw|繁体,ru|俄罗斯,tr|土耳其,pl|波兰",
+		"out": {
+			"_json": "../../resource/json",
+			"_ts": "../../src/xls",
+			"_xml": "../xml",
+			"language": [
+				"cn",
+				"en",
+				"tw",
+				"ru",
+				"tr",
+				"pl"
+			]
+		}
+	}
+]

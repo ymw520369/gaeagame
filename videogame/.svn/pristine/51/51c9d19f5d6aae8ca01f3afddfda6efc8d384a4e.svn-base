@@ -1,0 +1,29 @@
+{
+	"initial": [
+		"libs/modules/egret/egret.js",
+		"libs/modules/egret/egret.web.js",
+		"libs/modules/game/game.js",
+		"libs/modules/res/res.js",
+		"libs/modules/eui/eui.js",
+		"libs/modules/tween/tween.js",
+		"libs/modules/socket/socket.js",
+		"libs/modules/dragonBones/dragonBones.js",
+		"libs/modules/egret3d/egret3d.js",
+		"promise/bin/promise.js",
+		"extensions/protoBuf/protobuf.js"
+	],
+	"game": [
+		"bin-debug/core/net/SocketManager.js",
+		"bin-debug/euisys/AssetAdapter.js",
+		"bin-debug/core/view/GameLayerManager.js",
+		"bin-debug/core/view/WaitPanel.js",
+		"bin-debug/dragon/BetArea.js",
+		"bin-debug/dragon/DragonController.js",
+		"bin-debug/core/base/BaseClass.js",
+		"bin-debug/euisys/LoadingUI.js",
+		"bin-debug/euisys/ThemeAdapter.js",
+		"bin-debug/euisys/TrueLoadingUI.js",
+		"bin-debug/Main.js",
+		"bin-debug/util/Toast.js"
+	]
+}

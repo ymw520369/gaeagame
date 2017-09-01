@@ -1,5 +1,7 @@
 package com.gaea.game.base.data;
 
+import com.gaea.game.base.ws.WSMessage;
+
 /**
  * 用户令牌
  * <p>
@@ -8,6 +10,7 @@ package com.gaea.game.base.data;
  * @author Alan
  * @since 1.0
  */
+@WSMessage
 public class Credential {
     /* 用户认证通过的令牌*/
     public String certifyToken;

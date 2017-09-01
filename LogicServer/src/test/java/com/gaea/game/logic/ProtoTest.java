@@ -1,9 +1,10 @@
 package com.gaea.game.logic;
 
-import com.gaea.game.base.data.Role;
+import com.gaea.game.base.data.Credential;
 import com.gaea.game.base.protobuf.ProtostuffUtil;
+import com.gaea.game.base.ws.GameMessage;
 
-import java.util.concurrent.atomic.AtomicLong;
+import java.util.Arrays;
 
 /**
  * Created on 2017/8/28.
@@ -13,13 +14,12 @@ import java.util.concurrent.atomic.AtomicLong;
  */
 public class ProtoTest {
     public static void main(String[] args) {
-        Role role = new Role();
-        role.userId = "id1";
-        role.money = new AtomicLong(10);
-        role.name = "asda";
-        role.roleUid = 10;
-        byte[] data = ProtostuffUtil.serialize(role);
-        Role role2 = ProtostuffUtil.deserialize(data, Role.class);
-        System.out.println(role2.money);
+        Credential credential = new Credential("4848f958-0b85-43cf-86d7-3ee07cc0873b", 10043);
+        credential.sign = null;
+        byte[] d1 = ProtostuffUtil.serialize(credential);
+        GameMessage gameMessage = new GameMessage(1000, 1, d1);
+        byte[] data = ProtostuffUtil.serialize(gameMessage);
+        System.out.println("len=" + data.length);
+        System.out.println(Arrays.toString(data));
     }
 }

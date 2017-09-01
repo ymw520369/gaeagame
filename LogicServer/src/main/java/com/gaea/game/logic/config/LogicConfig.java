@@ -24,6 +24,7 @@ public class LogicConfig {
     public String wsAddress;
     public int maxNum;
     public String centerRegisterUrl;
+    public boolean debug;
 
     public int getServerId() {
         return serverId;
@@ -79,5 +80,13 @@ public class LogicConfig {
 
     public void setCenterRegisterUrl(String centerRegisterUrl) {
         this.centerRegisterUrl = centerRegisterUrl;
+    }
+
+    public boolean isDebug() {
+        return debug;
+    }
+
+    public void setDebug(boolean debug) {
+        this.debug = debug;
     }
 }

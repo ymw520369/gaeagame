@@ -1,10 +1,10 @@
 package com.gaea.game.base.ws;
 
-import com.alibaba.fastjson.JSON;
+import com.gaea.game.base.protobuf.ProtostuffUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.web.socket.BinaryMessage;
 import org.springframework.web.socket.CloseStatus;
-import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
 
 import java.io.IOException;
@@ -33,11 +33,8 @@ public class GameSession {
         return session.getRemoteAddress();
     }
 
-    public <C> C getReference(Class<C> clazz) {
-        if (reference != null && reference.getClass().isAssignableFrom(clazz)) {
-            return clazz.cast(reference);
-        }
-        return null;
+    public Object getReference() {
+        return reference;
     }
 
     public void setReference(Object reference) {
@@ -61,7 +58,9 @@ public class GameSession {
     }
 
     public void onSessionClose() {
-        sessionListener.onSessionClose(this);
+        if (sessionListener!=null) {
+            sessionListener.onSessionClose(this);
+        }
     }
 
     public void send(Object msg) {
@@ -70,11 +69,12 @@ public class GameSession {
             log.warn("消息发送失败，该消息结构没有被ResponseMessage注解，msg-class={}", msg.getClass());
             return;
         }
-        String data = JSON.toJSONString(msg);
+        byte[] data = ProtostuffUtil.serialize(msg);
         GameMessage marsMessage = new GameMessage(responseMessage.messageType(), responseMessage.cmd(), data);
-        TextMessage textMessage = new TextMessage(JSON.toJSONString(marsMessage));
+        byte[] message = ProtostuffUtil.serialize(marsMessage);
+        BinaryMessage binaryMessage = new BinaryMessage(message);
         try {
-            session.sendMessage(textMessage);
+            session.sendMessage(binaryMessage);
         } catch (IOException e) {
             e.printStackTrace();
             log.warn("send message error.", e);

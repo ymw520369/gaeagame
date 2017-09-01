@@ -1,29 +1,29 @@
 
  package com.gaea.game.logic.sample.poker;
 
- import com.dyuproject.protostuff.Tag;
- import com.gaea.game.base.ws.WSMessage;
  import com.gaea.game.logic.sample.Sample;
  import com.gaea.game.logic.sample.SampleFactory;
  import com.gaea.game.logic.sample.impl.SampleFactoryImpl;
-
+ import com.dyuproject.protostuff.Tag;
+ import com.gaea.game.base.ws.WSMessage;
  import javax.annotation.Generated;
+ import java.util.*;
 
 /**
  * Auto generate by "Python tools"
  * 
- * @Date 2017-08-28 17:56:30
+ * @Date 2017-09-01 17:04:29
  */
  @WSMessage
  @Generated("Python tools")
  public class Poker extends Sample{
     public static SampleFactory<Poker> factory = new SampleFactoryImpl<>();
     public static Poker getPoker(int sid) {
-        return factory.getSample(sid);
+        return (Poker)factory.getSample(sid);
     }
 
     public static Poker newPoker(int sid) {
-        return factory.newSample(sid);
+        return (Poker)factory.newSample(sid);
     }
  	@Tag(3)
 	// 花色

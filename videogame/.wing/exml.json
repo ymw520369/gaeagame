@@ -1,0 +1,30 @@
+{
+    "global": {
+        "globalAutoLayerMarkEnable": true,
+        "globalBindingDataTestObj": [],
+        "globalAdsorbEnable": false
+    },
+    "15ddff20bfb": {
+        "bindingDataTestObj": []
+    },
+    "15def73dbb3": {
+        "path": "dragon/BetArea.ts",
+        "class": "BetArea",
+        "parentPath": ""
+    },
+    "15e096e9f9f": {
+        "path": "../resource/game/dragon/skin/MyTest.ts",
+        "class": "MyTest",
+        "parentPath": ""
+    },
+    "15e09711302": {
+        "path": "../resource/game/dragon/skin/Hello.ts",
+        "class": "Hello",
+        "parentPath": ""
+    },
+    "15e098092e7": {
+        "path": "../resource/game/dragon/skin/eaaaa.ts",
+        "class": "eaaaa",
+        "parentPath": ""
+    }
+}

@@ -1,0 +1,12 @@
+package com.gaea.game.logic;
+
+
+option java_package = "com.gaea.game.logic.lhd";
+option java_outer_classname="BetArea";
+
+message BetArea {
+  optional float odds = 1;
+  optional int64 totalBetMoney = 2;
+  optional int64 playerBet = 3;
+}
+

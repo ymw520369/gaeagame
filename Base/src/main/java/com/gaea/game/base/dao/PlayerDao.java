@@ -14,7 +14,11 @@ public abstract class PlayerDao extends MongoBaseDao<Player, Long> {
         super(Player.class, mongoTemplate);
     }
 
-    public abstract Player findPlayerByUserId(int zoneId, long userId);
+    public abstract long findPlayerId(String userId);
 
-    public abstract Player createPlayer(int zoneId, long userId);
+    public abstract Player findPlayerByUserId(String userId);
+
+    public abstract boolean addMoney(long playerId, long money);
+
+    public abstract boolean reduceMoney(long playerId, long money);
 }

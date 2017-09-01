@@ -1,0 +1,13 @@
+package com.gaea.game.logic;
+
+import "PlayerDTO.proto";
+import "GameResultEnum.proto";
+
+option java_package = "com.gaea.game.logic.data";
+option java_outer_classname="LoginResult";
+
+message LoginResult {
+  required GameResultEnum result = 1;
+  optional PlayerDTO player = 2;
+}
+

@@ -1,0 +1,123 @@
+message ExitRoomResult {
+  optional bool result = 1;
+}
+
+message LHDGameInfo {
+  optional int64 ownerId = 1;
+  optional int64 roomUid = 2;
+  optional int32 round = 3;
+  optional int32 currentStatus = 4;
+  optional Poker longCard = 5;
+  optional Poker huCard = 6;
+  repeated BetArea betAreas = 7;
+}
+
+message PlayerDTO {
+  optional RoleDTO role = 1;
+  optional int32 sceneId = 2;
+}
+
+message CreateGame {
+  required GameType gameType = 1;
+}
+
+message VertifyInfo {
+  optional string token = 1;
+  optional string uuid = 2;
+}
+
+message BetArea {
+  optional float odds = 1;
+  optional int64 totalBetMoney = 2;
+  optional int64 playerBet = 3;
+}
+
+message JoinRoom {
+  optional int32 roomId = 1;
+}
+
+message GameMessage {
+  optional int32 messageType = 1;
+  optional int32 cmd = 2;
+  optional bytes data = 3;
+}
+
+message RoleDTO {
+  optional string userId = 1;
+  optional int64 roleUid = 2;
+  optional string name = 3;
+  optional int64 money = 4;
+}
+
+message Poker {
+  optional int32 sid = 1;
+  optional string name = 2;
+  optional int32 type = 3;
+  optional int32 value = 4;
+}
+
+message LogicServerInfo {
+  optional int32 serverId = 1;
+  optional string serverName = 2;
+  optional string serverAddress = 3;
+  optional int32 currentNum = 4;
+}
+
+enum ResultEnum {
+  SUCCESS = 0;
+  FAILURE = 1;
+  ILLEGAL = 2;
+  ERROR = 3;
+  ROLE_CREATED = 4;
+  ROLE_REPEAT = 5;
+  NOT_ENOUGH_GOLD = 6;
+  NOT_ENOUGH_DIAMOND = 7;
+  FINISH_QUEST = 8;
+  LENGTH_TOO_LONG = 9;
+  NEED_GET_AWARD = 10;
+  SEASON_NOT_OPENED = 11;
+}
+
+message Credential {
+  optional string certifyToken = 1;
+  optional int64 playerId = 2;
+  optional string sign = 3;
+}
+
+enum GameType {
+  LHD = 0;
+}
+
+enum GameResultEnum {
+  SUCCESS = 0;
+  FAILURE = 1;
+  ILLEGAL = 2;
+  ERROR = 3;
+  ROLE_CREATED = 4;
+  ROLE_REPEAT = 5;
+  NOT_ENOUGH_GOLD = 6;
+  NOT_ENOUGH_DIAMOND = 7;
+  FINISH_QUEST = 8;
+  LENGTH_TOO_LONG = 9;
+  NEED_GET_AWARD = 10;
+  SEASON_NOT_OPENED = 11;
+  CREATE_ROOM_FAIL = 12;
+  JOIN_ROOM_FAIL = 13;
+}
+
+message BetMessage {
+  optional uint32 betArea = 1;
+  optional int32 betMoney = 2;
+}
+
+message LoginResult {
+  required ResultEnum result = 1;
+  optional PlayerDTO player = 2;
+}
+
+message GameTips {
+  optional int32 tipsType = 1;
+  optional int32 resultCode = 2;
+  optional string resultDes = 3;
+}
+

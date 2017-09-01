@@ -2,19 +2,21 @@
 logging:
  config: config/logback.xml
  level.*: debug
-sample:
-  samplePackage: org.alan.chess.logic.sample
-  samplePath: resources/sample
-  roleSaveInterval: 60
+platform:
+  secretKey: aaaaaaaaaaaaaaa
+  vertifyUrl: http://localhost:8081/center/vertify/checkToken
+  consumeUrl: http://localhost:8081/comsume
 
-tcp:
- port: ${cluster.tcpAddress.port}
- host: ${cluster.tcpAddress.host}
+server:
+ port: 8081
+ address: 0.0.0.0
+ sessionTimeout: 30
+ contextPath: /center
 
 spring:
  data.mongodb.uri: mongodb://192.168.7.30:27017/cardchess
  redis:
-  host: localhost
+  host: 192.168.7.30
   port: 6379
   password: alan
   database: 2

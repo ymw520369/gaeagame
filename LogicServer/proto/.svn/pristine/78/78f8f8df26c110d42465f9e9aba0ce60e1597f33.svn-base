@@ -1,0 +1,11 @@
+package com.gaea.game.logic;
+
+import "GameType.proto";
+
+option java_package = "com.gaea.game.logic.handler";
+option java_outer_classname="CreateGame";
+
+message CreateGame {
+  required GameType gameType = 1;
+}
+

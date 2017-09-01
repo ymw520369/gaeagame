@@ -1,0 +1,21 @@
+package com.gaea.game.logic;
+
+
+option java_package = "com.gaea.game.base.constant";
+option java_outer_classname="GameResultEnum";
+
+enum GameResultEnum {
+  SUCCESS = 0;
+  FAILURE = 1;
+  ILLEGAL = 2;
+  ERROR = 3;
+  ROLE_CREATED = 4;
+  ROLE_REPEAT = 5;
+  NOT_ENOUGH_GOLD = 6;
+  NOT_ENOUGH_DIAMOND = 7;
+  FINISH_QUEST = 8;
+  LENGTH_TOO_LONG = 9;
+  NEED_GET_AWARD = 10;
+  SEASON_NOT_OPENED = 11;
+}
+

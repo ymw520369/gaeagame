@@ -1,0 +1,8 @@
+{
+  "skins": {
+    "BetArea": "resource/game/dragon/skin/BetArea.exml",
+    "dragonSkin": "resource/game/dragon/skin/dragonSkin.exml"
+  },
+  "autoGenerateExmlsList": true,
+  "exmls": []
+}

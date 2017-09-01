@@ -1,6 +1,6 @@
 package com.gaea.game.base.ws;
 
-import com.alibaba.fastjson.JSON;
+import com.gaea.game.base.protobuf.ProtostuffUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationListener;
@@ -44,9 +44,9 @@ public class WSMessageDispatcher implements ApplicationListener<ContextRefreshed
                     } else if (reference != null && clazz == reference.getClass()) {
                         args[i] = reference;
                     } else {
-                        WSMessage rm = clazz.getAnnotation(WSMessage.class);
-                        if (rm != null && msg.data != null && !msg.data.isEmpty()) {
-                            args[i] = JSON.parseObject(msg.data, clazz);
+                        //WSMessage rm = clazz.getAnnotation(WSMessage.class);
+                        if (msg.data != null && msg.data.length > 0) {
+                            args[i] = ProtostuffUtil.deserialize(msg.data, clazz);
                         }
                     }
                 }
@@ -62,6 +62,6 @@ public class WSMessageDispatcher implements ApplicationListener<ContextRefreshed
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {
         messageControllers = MessageUtil.load(event.getApplicationContext());
-        GameSession.responseMap = MessageUtil.loadResponseMessage("org.alan");
+        GameSession.responseMap = MessageUtil.loadResponseMessage("com.gaea");
     }
 }

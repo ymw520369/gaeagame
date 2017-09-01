@@ -13,29 +13,24 @@ import com.gaea.game.logic.room.RoomController;
  */
 public class PlayerController {
     public GameSession session;
-    public Player player;
     public RoomController roomController;
+    public long playerId;
+    public String playerName;
 
     public PlayerController(Player player) {
-        this.player = player;
+        this.playerId = player.role.roleUid;
+        this.playerName = player.role.name;
     }
 
     public long playerId() {
-        return player.role.roleUid;
+        return playerId;
     }
 
     public String playerName() {
-        return player.role.name;
-    }
-
-    public int sceneId() {
-        return player.sceneId;
-    }
-
-    public void setSceneId(int sceneId) {
-        player.sceneId = sceneId;
+        return playerName;
     }
 
     public void sendToClient(Object msg) {
+        session.send(msg);
     }
 }

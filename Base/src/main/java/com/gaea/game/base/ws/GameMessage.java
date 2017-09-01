@@ -7,15 +7,16 @@ package com.gaea.game.base.ws;
  * @author Alan
  * @since 1.0
  */
+@WSMessage
 public class GameMessage {
     /* 消息类型 */
     public int messageType;
     /* 子命令字*/
     public int cmd;
     /* 数据*/
-    public String data;
+    public byte[] data;
 
-    public GameMessage(int messageType, int cmd, String data) {
+    public GameMessage(int messageType, int cmd, byte[] data) {
         this.messageType = messageType;
         this.cmd = cmd;
         this.data = data;

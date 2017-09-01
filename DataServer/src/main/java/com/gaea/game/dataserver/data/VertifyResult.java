@@ -1,6 +1,6 @@
 package com.gaea.game.dataserver.data;
 
-import com.gaea.game.base.constant.GameResultEnum;
+import com.gaea.game.base.constant.ResultEnum;
 import com.gaea.game.base.data.Credential;
 
 /**
@@ -12,9 +12,11 @@ import com.gaea.game.base.data.Credential;
 public class VertifyResult {
     public int result;
     public Credential credential;
+    public String logicUrl;
 
-    public VertifyResult(GameResultEnum gameResultEnum, Credential credential) {
+    public VertifyResult(ResultEnum gameResultEnum, Credential credential, String logicUrl) {
         this.result = gameResultEnum.code;
         this.credential = credential;
+        this.logicUrl = logicUrl;
     }
 }

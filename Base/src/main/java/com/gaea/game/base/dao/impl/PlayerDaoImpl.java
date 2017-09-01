@@ -8,12 +8,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.stereotype.Component;
 
 /**
  * author Alan
  * eamil mingweiyang@foxmail.com
  * date 2017/8/16
  */
+@Component
 public class PlayerDaoImpl extends PlayerDao {
     Logger log = LoggerFactory.getLogger(getClass());
 
@@ -22,15 +24,26 @@ public class PlayerDaoImpl extends PlayerDao {
     }
 
     @Override
-    public Player findPlayerByUserId(int zoneId, long userId) {
-        log.debug("find role by user id, userid is {},zone is {}", userId, zoneId);
-        Query query = Query.query(Criteria.where("userUid").is(userId).and("zoneId").is(zoneId));
+    public long findPlayerId(String userId) {
+        return 0;
+    }
+
+    @Override
+    public Player findPlayerByUserId(String userId) {
+        log.debug("find role by user id, userid is {}", userId);
+        Query query = Query.query(Criteria.where("userUid").is(userId));
         return mongoTemplate.findOne(query
                 , Player.class);
     }
 
     @Override
-    public Player createPlayer(int zoneId, long userId) {
-        return null;
+    public boolean addMoney(long playerId, long money) {
+        return false;
     }
+
+    @Override
+    public boolean reduceMoney(long playerId, long money) {
+        return false;
+    }
+
 }

@@ -4,7 +4,7 @@
  *
  * 2017年2月22日 	
  */
-package com.tsixi.miner.center.web.result;
+package com.gaea.game.base.data;
 
 /**
  *

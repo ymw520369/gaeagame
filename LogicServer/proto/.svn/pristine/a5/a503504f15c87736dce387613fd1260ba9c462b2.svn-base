@@ -1,0 +1,11 @@
+package com.gaea.game.logic;
+
+
+option java_package = "com.gaea.game.logic.lhd";
+option java_outer_classname="BetMessage";
+
+message BetMessage {
+  optional uint32 betArea = 1;
+  optional int32 betMoney = 2;
+}
+

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="BetAreaSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing"
+	width="220" height="192" >
+	<e:Image id="bg" x="0" y="0" touchEnabled="false" source="scoreboard_png" width="220"/>
+	<e:Image id="roleImg" source="pixelcat_png" x="6" y="85"/>
+	<e:Image id="roleNameImg" source="cat_png" x="11" y="11"/>
+	<e:Label id="betText" text="100" x="73" y="81" textColor="0xfcfcfc" size="40" anchorOffsetX="0" width="144" textAlign="center"/>
+	<e:Label id="totalText" text="100" x="77" y="126" size="30" anchorOffsetX="0" width="139" textAlign="center" textColor="0x7297a3"/>
+	<e:Label id="addsText" text="1:2" x="181" y="8" size="20" textColor="0x65ccce"/>
+	<e:Label id="winText" text="+100" x="77" y="33" size="30" textColor="0xfc050a" bold="true" textAlign="center" anchorOffsetX="0" width="136"/>
+</e:Skin>

@@ -12,9 +12,7 @@ import org.springframework.stereotype.Component;
  * date 2017/8/27
  */
 @Component
-public class LogicConfigManager {
-    public String platformConfigFile = "config/platformConfig.json";
-
+public class DataConfigManager {
     public String platformConfigFile = "config/platformConfig.json";
 
     @Bean

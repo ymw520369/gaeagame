@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="dragonSkin"  xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ns1="*">
+	<e:Group width="100%" height="100%" x="0" y="0">
+		<e:Image id="he_png" x="330" y="952.33" source="pixeltie_png"/>
+		<e:Image id="twin_png" x="330" y="952.33" source="pixelcat_png"/>
+		<e:Image id="dwin_png" x="330" y="952.33" source="pixeldog_png"/>
+		<ns1:BetArea id="dragonArea" width="220" height="192" x="1.33" y="1065"  anchorOffsetY="0"/>
+		<ns1:BetArea id="tieArea" width="220" height="192" x="268.33" y="1065"/>
+		<ns1:BetArea id="tigerArea" width="220" height="192" x="535.33" y="1065"/>
+		<e:Image source="cardboard_2_png" x="537.66" y="912" anchorOffsetY="-0.98" anchorOffsetX="0" width="211" height="151"/>
+		<e:Image source="cardboard_1_png" x="1.67" y="912" anchorOffsetX="0" width="211" anchorOffsetY="0" height="151"/>
+		<e:Image id="card_1" x="140.67" y="1008" anchorOffsetX="68" anchorOffsetY="89" scaleX="1" source="back_png"/>
+		<e:Image id="card_1_back" x="140.67" y="1008" anchorOffsetX="66" anchorOffsetY="89" source="back_png"/>
+		<e:Image id="card_2" x="669" y="1008" anchorOffsetX="66.5" anchorOffsetY="89" scaleX="1" source="back_png"/>
+		<e:Image id="card_2_back" x="669" y="1008" anchorOffsetX="66.5" anchorOffsetY="89" source="back_png"/>
+		<e:ToggleButton id="chip_1" label="50" x="374" y="1271.33" width="54" selected="false" height="54">
+			<e:skinName>
+				<e:Skin states="up,down,disabled">
+				<e:Image width="100%" height="100%" source="coin s_png" source.down="coin s_png"/>
+				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+				</e:Skin>
+			</e:skinName>
+		</e:ToggleButton>
+		<e:ToggleButton id="chip_2" label="100" x="449" y="1271.33" width="54" selected="false" height="54">
+			<e:skinName>
+			<e:Skin states="up,down,disabled">
+				<e:Image width="100%" height="100%" source="coin s_png" source.down="coin s_png"/>
+				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+			</e:Skin>
+			</e:skinName>
+		</e:ToggleButton>
+		<e:ToggleButton id="chip_0" label="10" x="297" y="1271.33" width="54" selected="true" anchorOffsetX="0" anchorOffsetY="0" height="54">
+			<e:skinName>
+				<e:Skin states="up,down,disabled">
+				<e:Image width="100%" height="100%" source="coin s_png" source.down="coin s_png"/>
+				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+				</e:Skin>
+			</e:skinName>
+		</e:ToggleButton>
+		<e:ToggleButton id="chip_4" label="10k" x="592" y="1271.33" width="54" selected="false" enabled="true">
+			<e:skinName>
+				<e:Skin states="up,down,disabled">
+				<e:Image width="100%" height="100%" source="coin s_png" source.down="coin s_png"/>
+				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+				</e:Skin>
+			</e:skinName>
+		</e:ToggleButton>
+		<e:ToggleButton id="chip_3" label="1k" x="524" y="1271.33" width="54" selected="false" scaleX="1" scaleY="1" height="54">
+			<e:skinName>
+				<e:Skin states="up,down,disabled">
+				<e:Image width="100%" height="100%" source="coin s_png" source.down="coin s_png"/>
+				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+				</e:Skin>
+			</e:skinName>
+		</e:ToggleButton>
+		<e:Image x="35" y="1288" anchorOffsetX="0" width="46" anchorOffsetY="0" height="46" source="coin s_png"/>
+		<e:Label id="creditText" text="10000" x="89" y="1293.33" anchorOffsetX="0" width="118" anchorOffsetY="0" height="31" textColor="0xf40202"/>
+		<e:Label id="timeText" text="10" x="354.67" y="992.66" textColor="0x78eded"/>
+		<e:Image source="history_png" x="691.33" y="1270" width="54" height="54"/>
+	</e:Group>
+</e:Skin>

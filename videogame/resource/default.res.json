@@ -1,0 +1,393 @@
+{
+	"groups": [
+		{
+			"keys": "back_png,black_10_png,black_2_png,black_3_png,black_4_png,black_5_png,black_6_png,black_7_png,black_8_png,black_9_png,black_A_png,black_J_png,black_K_png,black_Q_png,joker_1_png,joker_2_png,plum_10_png,plum_2_png,plum_3_png,plum_4_png,plum_5_png,plum_6_png,plum_7_png,plum_8_png,plum_9_png,plum_A_png,plum_J_png,plum_K_png,plum_Q_png,red_10_png,red_2_png,red_3_png,red_4_png,red_5_png,red_6_png,red_7_png,red_8_png,red_9_png,red_A_png,red_J_png,red_K_png,red_Q_png,square_10_png,square_2_png,square_3_png,square_4_png,square_5_png,square_6_png,square_7_png,square_8_png,square_9_png,square_A_png,square_J_png,square_K_png,square_Q_png,cardboard_1_png,cardboard_2_png,cat_png,coin s_png,coin_10_png,coin_100_png,coin_1K_png,coin_1W_png,dog_png,history_png,lose_png,pixelcat_png,pixeldog_png,pixeltie_png,scoreboard_png,tie_png,win_png,config_json",
+			"name": "game"
+		},
+		{
+			"keys": "loading2_png,toast-bg_png",
+			"name": "loading"
+		},
+		{
+			"keys": "",
+			"name": "preload"
+		}
+	],
+	"resources": [
+		{
+			"url": "game/loading/loading2.png",
+			"type": "image",
+			"name": "loading2_png"
+		},
+		{
+			"url": "game/loading/toast-bg.png",
+			"type": "image",
+			"name": "toast-bg_png"
+		},
+		{
+			"url": "game/dragon/config.json",
+			"type": "json",
+			"name": "config_json"
+		},
+		{
+			"url": "game/dragon/image/card/back.png",
+			"type": "image",
+			"name": "back_png"
+		},
+		{
+			"url": "game/dragon/image/card/black_10.png",
+			"type": "image",
+			"name": "black_10_png"
+		},
+		{
+			"url": "game/dragon/image/card/black_2.png",
+			"type": "image",
+			"name": "black_2_png"
+		},
+		{
+			"url": "game/dragon/image/card/black_3.png",
+			"type": "image",
+			"name": "black_3_png"
+		},
+		{
+			"url": "game/dragon/image/card/black_4.png",
+			"type": "image",
+			"name": "black_4_png"
+		},
+		{
+			"url": "game/dragon/image/card/black_5.png",
+			"type": "image",
+			"name": "black_5_png"
+		},
+		{
+			"url": "game/dragon/image/card/black_6.png",
+			"type": "image",
+			"name": "black_6_png"
+		},
+		{
+			"url": "game/dragon/image/card/black_7.png",
+			"type": "image",
+			"name": "black_7_png"
+		},
+		{
+			"url": "game/dragon/image/card/black_8.png",
+			"type": "image",
+			"name": "black_8_png"
+		},
+		{
+			"url": "game/dragon/image/card/black_9.png",
+			"type": "image",
+			"name": "black_9_png"
+		},
+		{
+			"url": "game/dragon/image/card/black_A.png",
+			"type": "image",
+			"name": "black_A_png"
+		},
+		{
+			"url": "game/dragon/image/card/black_J.png",
+			"type": "image",
+			"name": "black_J_png"
+		},
+		{
+			"url": "game/dragon/image/card/black_K.png",
+			"type": "image",
+			"name": "black_K_png"
+		},
+		{
+			"url": "game/dragon/image/card/black_Q.png",
+			"type": "image",
+			"name": "black_Q_png"
+		},
+		{
+			"url": "game/dragon/image/card/joker_1.png",
+			"type": "image",
+			"name": "joker_1_png"
+		},
+		{
+			"url": "game/dragon/image/card/joker_2.png",
+			"type": "image",
+			"name": "joker_2_png"
+		},
+		{
+			"url": "game/dragon/image/card/plum_10.png",
+			"type": "image",
+			"name": "plum_10_png"
+		},
+		{
+			"url": "game/dragon/image/card/plum_2.png",
+			"type": "image",
+			"name": "plum_2_png"
+		},
+		{
+			"url": "game/dragon/image/card/plum_3.png",
+			"type": "image",
+			"name": "plum_3_png"
+		},
+		{
+			"url": "game/dragon/image/card/plum_4.png",
+			"type": "image",
+			"name": "plum_4_png"
+		},
+		{
+			"url": "game/dragon/image/card/plum_5.png",
+			"type": "image",
+			"name": "plum_5_png"
+		},
+		{
+			"url": "game/dragon/image/card/plum_6.png",
+			"type": "image",
+			"name": "plum_6_png"
+		},
+		{
+			"url": "game/dragon/image/card/plum_7.png",
+			"type": "image",
+			"name": "plum_7_png"
+		},
+		{
+			"url": "game/dragon/image/card/plum_8.png",
+			"type": "image",
+			"name": "plum_8_png"
+		},
+		{
+			"url": "game/dragon/image/card/plum_9.png",
+			"type": "image",
+			"name": "plum_9_png"
+		},
+		{
+			"url": "game/dragon/image/card/plum_A.png",
+			"type": "image",
+			"name": "plum_A_png"
+		},
+		{
+			"url": "game/dragon/image/card/plum_J.png",
+			"type": "image",
+			"name": "plum_J_png"
+		},
+		{
+			"url": "game/dragon/image/card/plum_K.png",
+			"type": "image",
+			"name": "plum_K_png"
+		},
+		{
+			"url": "game/dragon/image/card/plum_Q.png",
+			"type": "image",
+			"name": "plum_Q_png"
+		},
+		{
+			"url": "game/dragon/image/card/red_10.png",
+			"type": "image",
+			"name": "red_10_png"
+		},
+		{
+			"url": "game/dragon/image/card/red_2.png",
+			"type": "image",
+			"name": "red_2_png"
+		},
+		{
+			"url": "game/dragon/image/card/red_3.png",
+			"type": "image",
+			"name": "red_3_png"
+		},
+		{
+			"url": "game/dragon/image/card/red_4.png",
+			"type": "image",
+			"name": "red_4_png"
+		},
+		{
+			"url": "game/dragon/image/card/red_5.png",
+			"type": "image",
+			"name": "red_5_png"
+		},
+		{
+			"url": "game/dragon/image/card/red_6.png",
+			"type": "image",
+			"name": "red_6_png"
+		},
+		{
+			"url": "game/dragon/image/card/red_7.png",
+			"type": "image",
+			"name": "red_7_png"
+		},
+		{
+			"url": "game/dragon/image/card/red_8.png",
+			"type": "image",
+			"name": "red_8_png"
+		},
+		{
+			"url": "game/dragon/image/card/red_9.png",
+			"type": "image",
+			"name": "red_9_png"
+		},
+		{
+			"url": "game/dragon/image/card/red_A.png",
+			"type": "image",
+			"name": "red_A_png"
+		},
+		{
+			"url": "game/dragon/image/card/red_J.png",
+			"type": "image",
+			"name": "red_J_png"
+		},
+		{
+			"url": "game/dragon/image/card/red_K.png",
+			"type": "image",
+			"name": "red_K_png"
+		},
+		{
+			"url": "game/dragon/image/card/red_Q.png",
+			"type": "image",
+			"name": "red_Q_png"
+		},
+		{
+			"url": "game/dragon/image/card/square_10.png",
+			"type": "image",
+			"name": "square_10_png"
+		},
+		{
+			"url": "game/dragon/image/card/square_2.png",
+			"type": "image",
+			"name": "square_2_png"
+		},
+		{
+			"url": "game/dragon/image/card/square_3.png",
+			"type": "image",
+			"name": "square_3_png"
+		},
+		{
+			"url": "game/dragon/image/card/square_4.png",
+			"type": "image",
+			"name": "square_4_png"
+		},
+		{
+			"url": "game/dragon/image/card/square_5.png",
+			"type": "image",
+			"name": "square_5_png"
+		},
+		{
+			"url": "game/dragon/image/card/square_6.png",
+			"type": "image",
+			"name": "square_6_png"
+		},
+		{
+			"url": "game/dragon/image/card/square_7.png",
+			"type": "image",
+			"name": "square_7_png"
+		},
+		{
+			"url": "game/dragon/image/card/square_8.png",
+			"type": "image",
+			"name": "square_8_png"
+		},
+		{
+			"url": "game/dragon/image/card/square_9.png",
+			"type": "image",
+			"name": "square_9_png"
+		},
+		{
+			"url": "game/dragon/image/card/square_A.png",
+			"type": "image",
+			"name": "square_A_png"
+		},
+		{
+			"url": "game/dragon/image/card/square_J.png",
+			"type": "image",
+			"name": "square_J_png"
+		},
+		{
+			"url": "game/dragon/image/card/square_K.png",
+			"type": "image",
+			"name": "square_K_png"
+		},
+		{
+			"url": "game/dragon/image/card/square_Q.png",
+			"type": "image",
+			"name": "square_Q_png"
+		},
+		{
+			"url": "game/dragon/image/ui/cardboard_1.png",
+			"type": "image",
+			"name": "cardboard_1_png"
+		},
+		{
+			"url": "game/dragon/image/ui/cardboard_2.png",
+			"type": "image",
+			"name": "cardboard_2_png"
+		},
+		{
+			"url": "game/dragon/image/ui/cat.png",
+			"type": "image",
+			"name": "cat_png"
+		},
+		{
+			"url": "game/dragon/image/ui/coin s.png",
+			"type": "image",
+			"name": "coin s_png"
+		},
+		{
+			"url": "game/dragon/image/ui/coin_10.png",
+			"type": "image",
+			"name": "coin_10_png"
+		},
+		{
+			"url": "game/dragon/image/ui/coin_100.png",
+			"type": "image",
+			"name": "coin_100_png"
+		},
+		{
+			"url": "game/dragon/image/ui/coin_1K.png",
+			"type": "image",
+			"name": "coin_1K_png"
+		},
+		{
+			"url": "game/dragon/image/ui/coin_1W.png",
+			"type": "image",
+			"name": "coin_1W_png"
+		},
+		{
+			"url": "game/dragon/image/ui/dog.png",
+			"type": "image",
+			"name": "dog_png"
+		},
+		{
+			"url": "game/dragon/image/ui/history.png",
+			"type": "image",
+			"name": "history_png"
+		},
+		{
+			"url": "game/dragon/image/ui/lose.png",
+			"type": "image",
+			"name": "lose_png"
+		},
+		{
+			"url": "game/dragon/image/ui/pixelcat.png",
+			"type": "image",
+			"name": "pixelcat_png"
+		},
+		{
+			"url": "game/dragon/image/ui/pixeldog.png",
+			"type": "image",
+			"name": "pixeldog_png"
+		},
+		{
+			"url": "game/dragon/image/ui/pixeltie.png",
+			"type": "image",
+			"name": "pixeltie_png"
+		},
+		{
+			"url": "game/dragon/image/ui/scoreboard.png",
+			"type": "image",
+			"name": "scoreboard_png"
+		},
+		{
+			"url": "game/dragon/image/ui/tie.png",
+			"type": "image",
+			"name": "tie_png"
+		},
+		{
+			"url": "game/dragon/image/ui/win.png",
+			"type": "image",
+			"name": "win_png"
+		}
+	]
+}

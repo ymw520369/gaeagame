@@ -1,0 +1,10 @@
+package com.gaea.game.logic;
+
+
+option java_package = "com.gaea.game.logic.data";
+option java_outer_classname="GameType";
+
+enum GameType {
+  LHD = 0;
+}
+

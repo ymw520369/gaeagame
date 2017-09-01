@@ -1,0 +1,12 @@
+package com.gaea.game.logic;
+
+import "RoleDTO.proto";
+
+option java_package = "com.gaea.game.logic.dto";
+option java_outer_classname="PlayerDTO";
+
+message PlayerDTO {
+  optional RoleDTO role = 1;
+  optional int32 sceneId = 2;
+}
+

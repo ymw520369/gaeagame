@@ -133,7 +133,11 @@ public class SampleLoader extends FileAlterationListenerAdaptor
             }
             String fileName = file.getName();
             String pkg = fileName.substring(0, fileName.indexOf('.'));
+            int index = name.indexOf(".");
             String className = name;
+            if (index!=-1){
+                className = name.substring(index+1);
+            }
             values.remove(0);// 第一行为说明，不要
             values.remove(0);// 第2行为类型，不要
             String[] names = values.remove(0); // 第3行为字段名称

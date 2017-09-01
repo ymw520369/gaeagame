@@ -1,6 +1,7 @@
 package com.gaea.game.logic;
 
 import com.gaea.game.base.timer.TimerCenter;
+import com.gaea.game.base.ws.WSMessageDispatcher;
 import org.apache.commons.io.monitor.FileAlterationMonitor;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -34,6 +35,11 @@ public class LogicServer implements ApplicationRunner {
     @Bean
     public TimerCenter timerCenter() {
         return timerCenter = new TimerCenter("timer-center");
+    }
+
+    @Bean
+    public WSMessageDispatcher wsMessageDispatcher() {
+        return new WSMessageDispatcher();
     }
 
     @Bean

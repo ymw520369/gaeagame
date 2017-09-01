@@ -1,0 +1,12 @@
+package com.gaea.game.logic;
+
+
+option java_package = "com.gaea.game.base.data";
+option java_outer_classname="Credential";
+
+message Credential {
+  optional string certifyToken = 1;
+  optional int64 playerId = 2;
+  optional string sign = 3;
+}
+

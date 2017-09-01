@@ -3,50 +3,54 @@ package com.gaea.game.base.config;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.cache.CacheManager;
+import org.springframework.cache.interceptor.KeyGenerator;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
+import org.springframework.data.redis.cache.RedisCacheManager;
+import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
-import redis.clients.jedis.JedisPoolConfig;
+
+import java.lang.reflect.Method;
 
 /**
  * author Alan
  * eamil mingweiyang@foxmail.com
  * date 2017/8/17
  */
-@Configuration("redisConfig")
+@Configuration()
 @EnableAutoConfiguration
 public class RedisConfig {
 
-    private static Logger log = LoggerFactory.getLogger(RedisConfig.class);
+    @Bean
+    public KeyGenerator keyGenerator() {
+        return new KeyGenerator() {
+            @Override
+            public Object generate(Object target, Method method,
+                                   Object... params) {
+                StringBuilder sb = new StringBuilder();
+                sb.append(target.getClass().getName());
+                sb.append(method.getName());
+                for (Object obj : params) {
+                    sb.append(obj.toString());
+                }
+                return sb.toString();
+            }
+        };
 
-    @Bean("jedisPoolConfig")
-    @ConfigurationProperties(prefix = "center.redis")
-    public JedisPoolConfig getRedisConfig() {
-        JedisPoolConfig config = new JedisPoolConfig();
-        return config;
     }
 
-    @Bean("jedisConnectionFactory")
-    @ConfigurationProperties(prefix = "center.redis")
-    public JedisConnectionFactory getConnectionFactory() {
-        JedisConnectionFactory factory = new JedisConnectionFactory();
-        JedisPoolConfig config = getRedisConfig();
-        factory.setPoolConfig(config);
-        log.info("JedisConnectionFactory bean init success.");
-        return factory;
+    @Bean
+    public CacheManager cacheManager(RedisTemplate redisTemplate) {
+        return new RedisCacheManager(redisTemplate);
     }
-
 
     @Bean("redisTemplate")
-    public <T> RedisTemplate<String, T> redisTemplate() {
+    public <T> RedisTemplate<String, T> redisTemplate(RedisConnectionFactory factory) {
         RedisTemplate<String, T> template = new RedisTemplate<>();
-        template.setConnectionFactory(getConnectionFactory());
+        template.setConnectionFactory(factory);
         Jackson2JsonRedisSerializer jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer<>(
                 Object.class);
         ObjectMapper om = new ObjectMapper();

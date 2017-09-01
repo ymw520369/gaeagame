@@ -1,7 +1,7 @@
-package org.alan.mars.protostuff;
+package com.gaea.game.base.protobuf;
 
 import com.dyuproject.protostuff.LinkedBuffer;
-import com.dyuproject.protostuff.ProtostuffIOUtil;
+import com.dyuproject.protostuff.ProtobufIOUtil;
 import com.dyuproject.protostuff.Schema;
 import com.dyuproject.protostuff.runtime.RuntimeSchema;
 import org.objenesis.Objenesis;
@@ -41,7 +41,7 @@ public final class ProtostuffUtil {
         LinkedBuffer buffer = getBuffer();
         try {
             Schema<T> schema = getSchema(cls);
-            return ProtostuffIOUtil.toByteArray(obj, schema, buffer);
+            return ProtobufIOUtil.toByteArray(obj, schema, buffer);
         } catch (Exception e) {
             throw new IllegalStateException(e.getMessage(), e);
         } finally {
@@ -56,7 +56,7 @@ public final class ProtostuffUtil {
         try {
             T message = objenesis.newInstance(cls);
             Schema<T> schema = getSchema(cls);
-            ProtostuffIOUtil.mergeFrom(data, message, schema);
+            ProtobufIOUtil.mergeFrom(data, message, schema);
             return message;
         } catch (Exception e) {
             throw new IllegalStateException(e.getMessage(), e);

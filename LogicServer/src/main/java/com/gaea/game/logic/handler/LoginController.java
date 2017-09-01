@@ -1,9 +1,11 @@
 package com.gaea.game.logic.handler;
 
-import com.gaea.game.base.constant.GameResultEnum;
+import com.gaea.game.base.constant.ResultEnum;
 import com.gaea.game.base.constant.RedisKey;
+import com.gaea.game.base.dao.PlayerDao;
 import com.gaea.game.base.data.Credential;
 import com.gaea.game.base.data.Player;
+import com.gaea.game.base.data.UserInfo;
 import com.gaea.game.base.ws.Command;
 import com.gaea.game.base.ws.GameSession;
 import com.gaea.game.base.ws.MessageType;
@@ -14,6 +16,7 @@ import com.gaea.game.logic.manager.LogicManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.HashOperations;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.stereotype.Component;
 
 /**
  * Created on 2017/8/24.
@@ -21,32 +24,38 @@ import org.springframework.data.redis.core.RedisTemplate;
  * @author Alan
  * @since 1.0
  */
+@Component
 @MessageType(MessageConst.Login.TYPE)
 public class LoginController {
     @Autowired
-    private RedisTemplate<String, String> redisTemplate;
+    private RedisTemplate redisTemplate;
     @Autowired
     private LogicManager logicManager;
+    @Autowired
+    PlayerDao playerDao;
 
     @Command(MessageConst.Login.REQ_VERTIFY)
     public void login(GameSession session, Credential credential) {
-        HashOperations<String, Long, Player> hashOperations = redisTemplate.opsForHash();
-        Player player = hashOperations.get(RedisKey.ONLINE_PLAYER, credential.playerId);
-        if (player == null) {
-            sendLoginResult(session, GameResultEnum.FAILURE, null);
+        HashOperations<String, Long, UserInfo> hashOperations = redisTemplate.opsForHash();
+        UserInfo userInfo = hashOperations.get(RedisKey.ONLINE_PLAYER, credential.playerId);
+        if (userInfo == null) {
+            sendLoginResult(session, ResultEnum.FAILURE, null);
         }
-        if (credential.certifyToken.equals(player.certifyToken)) {
+        String certifyToken = userInfo.credential.certifyToken;
+        if (credential.certifyToken.equals(certifyToken)) {
+            Player player = playerDao.findOne(userInfo.playerId);
             PlayerController playerController = new PlayerController(player);
             playerController.session = session;
             session.setReference(playerController);
-            sendLoginResult(session, GameResultEnum.SUCCESS, player);
+            session.setSessionListener(logicManager);
+            sendLoginResult(session, ResultEnum.SUCCESS, player);
             logicManager.playerOnline(playerController);
         } else {
-            sendLoginResult(session, GameResultEnum.FAILURE, null);
+            sendLoginResult(session, ResultEnum.FAILURE, null);
         }
     }
 
-    public void sendLoginResult(GameSession session, GameResultEnum resultEnum, Player player) {
+    public void sendLoginResult(GameSession session, ResultEnum resultEnum, Player player) {
         LoginResult loginResult = new LoginResult(resultEnum, player);
         session.send(loginResult);
     }

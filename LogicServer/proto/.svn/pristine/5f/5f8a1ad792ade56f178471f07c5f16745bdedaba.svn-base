@@ -1,0 +1,13 @@
+package com.gaea.game.logic;
+
+
+option java_package = "com.gaea.game.logic.dto";
+option java_outer_classname="RoleDTO";
+
+message RoleDTO {
+  optional string userId = 1;
+  optional int64 roleUid = 2;
+  optional string name = 3;
+  optional int64 money = 4;
+}
+

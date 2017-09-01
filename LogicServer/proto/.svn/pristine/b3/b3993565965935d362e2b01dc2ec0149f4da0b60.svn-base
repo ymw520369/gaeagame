@@ -1,0 +1,13 @@
+package com.gaea.game.logic;
+
+
+option java_package = "com.gaea.game.base.data";
+option java_outer_classname="LogicServerInfo";
+
+message LogicServerInfo {
+  optional int32 serverId = 1;
+  optional string serverName = 2;
+  optional string serverAddress = 3;
+  optional int32 currentNum = 4;
+}
+

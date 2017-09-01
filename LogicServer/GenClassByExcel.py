@@ -7,13 +7,18 @@ import time
 import xlrd
 import os
 
+superClassName = "Sample"
+factorySource = "public static SampleFactory<%s> factory = new SampleFactoryImpl<>();"
+
 javaSourceTemplate = """
  package %s;
 
- import org.alan.mars.sample.Sample;
- import org.alan.mars.sample.SampleFactory;
- import org.alan.mars.sample.impl.SampleFactoryImpl;
+ import com.gaea.game.logic.sample.Sample;
+ import com.gaea.game.logic.sample.SampleFactory;
+ import com.gaea.game.logic.sample.impl.SampleFactoryImpl;
  import com.dyuproject.protostuff.Tag;
+ import com.gaea.game.base.ws.WSMessage;
+ import javax.annotation.Generated;
  import java.util.*;
 
 /**
@@ -21,14 +26,16 @@ javaSourceTemplate = """
  * 
  * @Date %s
  */
- public class %s extends Sample{
-    public static SampleFactory<%s> factory = new SampleFactoryImpl<>();
+ @WSMessage
+ @Generated("Python tools")
+ public class %s extends %s{
+    %s
     public static %s get%s(int sid) {
-        return factory.getSample(sid);
+        return (%s)factory.getSample(sid);
     }
 
     public static %s new%s(int sid) {
-        return factory.newSample(sid);
+        return (%s)factory.newSample(sid);
     }
  %s
  }
@@ -58,20 +65,22 @@ public class %s
 
 """
 
-topackage="org.alan.chess.logic.sample"
+topackage = "com.gaea.game.logic.sample"
+
 
 class Field:
     comment = "field comment."
     modifier = "public"
     fieldType = "String"
     fieldName = ""
+    index = 1
 
     def __eq__(self, o) -> bool:
         return self.fieldName == o.fieldName
 
     def genField(self, i):
         return "\t@Tag(%s)\n\t// %s\n\t%s %s %s;\n" % (
-            i + 3, self.comment, self.modifier, self.fieldType, self.fieldName)
+            self.index, self.comment, self.modifier, self.fieldType, self.fieldName)
 
     def genCsField(self, i):
         if self.fieldType == "String":
@@ -87,6 +96,8 @@ class Field:
 
 class JavaSourceTemplate:
     package: string = ""
+    spClassName = ""
+    factorySrc = ""
     className = ""
     fields = []
 
@@ -99,7 +110,9 @@ class JavaSourceTemplate:
             strFields += field.genField(i)
 
         return javaSourceTemplate % (
-            self.package, time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()), self.className, self.className,self.className, self.className,self.className, self.className,
+            self.package, time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()), self.className, self.spClassName,
+            self.factorySrc,
+            self.className, self.className, self.className, self.className, self.className, self.className,
             strFields)
 
     def genCsSource(self):
@@ -121,7 +134,7 @@ def excel2Source(parent: string, filename: string, _javaToDir: string, _csToDir:
     # 读取文件
     bk = xlrd.open_workbook(fullName)
     # package = fullName.replace(fromDir, "").split(".")[0].replace("/", ".")
-    package = topackage+"."+pkg
+    package = topackage + "." + pkg
     # 获取文件表格数量
     sheetlen = bk.nsheets
     for sheetnum in range(sheetlen):
@@ -130,8 +143,19 @@ def excel2Source(parent: string, filename: string, _javaToDir: string, _csToDir:
         # 获取行数
         sh = bk.sheet_by_index(sheetnum)
         sheetName = sh.name
+        className = sheetName
+        index = sheetName.find('.')
+        _superClassName = superClassName
+        _factorySource = factorySource % className
+        if index != -1:
+            _superClassName = sheetName[0: index]
+            className = sheetName[index + 1:]
+            _factorySource = ""
+
+        jst.spClassName = _superClassName
+        jst.factorySrc = _factorySource
         # 得到类名
-        jst.className = sheetName
+        jst.className = className
         nrows = sh.nrows
         if nrows >= 3:
             fieldComment = sh.row(0)
@@ -143,7 +167,8 @@ def excel2Source(parent: string, filename: string, _javaToDir: string, _csToDir:
                 field.comment = fieldComment[cellNum].value
                 field.fieldType = fieldType[cellNum].value
                 field.fieldName = fieldNames[cellNum].value
-                if field not in jst.fields and field.fieldName not in ["sid", "name"]:
+                field.index = cellNum+1
+                if field not in jst.fields and field.fieldName not in ["sid", "name"] and field.fieldType is not "":
                     jst.fields.append(field)
             pass
 
@@ -154,7 +179,7 @@ def excel2Source(parent: string, filename: string, _javaToDir: string, _csToDir:
                 sourcePath = _javaToDir + path
                 if not os.path.exists(sourcePath):
                     os.makedirs(sourcePath)
-                sourceFileName = sourcePath + sheetName + ".java"
+                sourceFileName = sourcePath + className + ".java"
                 file = open(sourceFileName, mode="w", buffering=1024, encoding="UTF-8")
                 file.write(javaSource)
             if _csToDir is not None:
@@ -162,7 +187,7 @@ def excel2Source(parent: string, filename: string, _javaToDir: string, _csToDir:
                 csSourcePath = _csToDir
                 if not os.path.exists(csSourcePath):
                     os.makedirs(csSourcePath)
-                cdSourceFileName = csSourcePath + sheetName + ".cs"
+                cdSourceFileName = csSourcePath + className + ".cs"
                 file2 = open(cdSourceFileName, mode="w", buffering=1024, encoding="UTF-8")
                 file2.write(csSource)
 

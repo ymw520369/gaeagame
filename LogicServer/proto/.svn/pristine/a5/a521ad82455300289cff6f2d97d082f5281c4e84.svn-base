@@ -1,0 +1,13 @@
+package com.gaea.game.logic;
+
+
+option java_package = "com.gaea.game.base.data";
+option java_outer_classname="Role";
+
+message Role {
+  optional string userId = 1;
+  optional int64 roleUid = 2;
+  optional string name = 3;
+  optional int64 lmoney = 4;
+}
+
