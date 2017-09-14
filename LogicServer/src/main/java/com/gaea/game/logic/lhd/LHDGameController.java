@@ -1,9 +1,8 @@
 package com.gaea.game.logic.lhd;
 
-import com.gaea.game.base.data.Player;
-import com.gaea.game.base.data.Role;
-import com.gaea.game.base.timer.TimerEvent;
-import com.gaea.game.base.timer.TimerListener;
+import com.gaea.game.core.data.Role;
+import com.gaea.game.core.timer.TimerEvent;
+import com.gaea.game.core.timer.TimerListener;
 import com.gaea.game.logic.data.GameAnn;
 import com.gaea.game.logic.data.GameInfo;
 import com.gaea.game.logic.data.GameType;
@@ -17,6 +16,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
 
 
@@ -64,29 +64,32 @@ public class LHDGameController extends GameController<LHDConfigInfo> implements 
     }
 
     public void idel() {
+        timerCenter.add(new TimerEvent<>(this, gameConfigInfo.idelTime, LHDStatus.READY).withTimeUnit(TimeUnit.SECONDS));
         currentStatus = LHDStatus.IDEL;
         round++;
         betAreas[0] = new BetArea(BetAreaType.LONG, gameConfigInfo.longOdds);
         betAreas[1] = new BetArea(BetAreaType.HE, gameConfigInfo.heOdds);
         betAreas[2] = new BetArea(BetAreaType.HU, gameConfigInfo.huOdds);
         broadcastStatus();
-        timerCenter.add(new TimerEvent<>(this, gameConfigInfo.idelTime, LHDStatus.READY));
     }
 
     public void readyBet() {
         currentStatus = LHDStatus.READY;
-        timerCenter.add(new TimerEvent<>(this, gameConfigInfo.idelTime, LHDStatus.BET));
+        timerCenter.add(new TimerEvent<>(this, gameConfigInfo.idelTime, LHDStatus.BET).withTimeUnit(TimeUnit.SECONDS));
         broadcastStatus();
     }
 
     public void beginBet() {
         currentStatus = LHDStatus.BET;
-        timerCenter.add(new TimerEvent<>(this, gameConfigInfo.betTime, LHDStatus.BILL));
+        timerCenter.add(new TimerEvent<>(this, gameConfigInfo.betTime, LHDStatus.BILL).withTimeUnit(TimeUnit.SECONDS));
         betBeginTime = (int) (System.currentTimeMillis() / 1000);
-        broadcastBetData();
+        //broadcastBetData();
+        broadcastStatus();
     }
 
     public void endBet() {
+        currentStatus = LHDStatus.BILL;
+        timerCenter.add(new TimerEvent<>(this, gameConfigInfo.idelTime, LHDStatus.IDEL).withTimeUnit(TimeUnit.SECONDS));
         List<Poker> cards = PokerHelper.randomCard(2, false);
         longCard = cards.get(0);
         huCard = cards.get(1);
@@ -121,13 +124,14 @@ public class LHDGameController extends GameController<LHDConfigInfo> implements 
             long betMoney = e.getValue().get();
             long getMoney = (long) (betMoney * odds);
             //给用户增加金币
-            playerDao.addMoney(playerId, getMoney);
+            roleDao.addMoney(playerId, getMoney);
             calculateMap.put(playerId, getMoney);
         });
 
         long totalPay = calculateMap.values().stream().mapToLong(Long::longValue).sum();
         Map<Long, LHDBillStatusData> lhdGameBillMap = new HashMap<>();
         LHDBillStatusData oterGameBill = new LHDBillStatusData();
+        oterGameBill.lhdStatus = currentStatus;
         oterGameBill.huCard = huCard;
         oterGameBill.longCard = longCard;
         oterGameBill.totalBet = totalBet;
@@ -135,17 +139,17 @@ public class LHDGameController extends GameController<LHDConfigInfo> implements 
         for (Map.Entry<Long, Long> e : betMap.entrySet()) {
             long playerId = e.getKey();
             LHDBillStatusData lhdGameBill = new LHDBillStatusData();
+            lhdGameBill.lhdStatus = currentStatus;
             lhdGameBill.huCard = huCard;
             lhdGameBill.longCard = longCard;
             lhdGameBill.totalBet = totalBet;
             lhdGameBill.totalWinMoney = totalBet - totalPay;
             lhdGameBill.playerBet = e.getValue();
-            lhdGameBill.playerWinMoney = calculateMap.get(playerId);
+            lhdGameBill.playerWinMoney = calculateMap.getOrDefault(playerId, 0L);
             lhdGameBillMap.put(playerId, lhdGameBill);
         }
         sendLHDGameBill(lhdGameBillMap, oterGameBill);
-        currentStatus = LHDStatus.BILL;
-        timerCenter.add(new TimerEvent<>(this, gameConfigInfo.idelTime, LHDStatus.IDEL));
+
     }
 
     public void sendLHDGameBill(Map<Long, LHDBillStatusData> lhdGameBillMap, LHDBillStatusData oterGameBill) {
@@ -153,7 +157,7 @@ public class LHDGameController extends GameController<LHDConfigInfo> implements 
                     long playerId = pc.playerId;
                     LHDBillStatusData lb = lhdGameBillMap.get(playerId);
                     if (lb != null) {
-                        lb.playerMoney = playerDao.findOne(playerId).role.money;
+                        lb.playerMoney = roleDao.findOne(playerId).money;
                         sendMessage(pc, lb);
                     } else {
                         sendMessage(pc, oterGameBill);
@@ -172,14 +176,13 @@ public class LHDGameController extends GameController<LHDConfigInfo> implements 
     public void bet(long playerId, int areaType, int betMoney) {
         //如果当前是押注时间
         if (currentStatus == LHDStatus.BET) {
-            Player player = playerDao.findOne(playerId);
-            Role role = player.role;
+            Role role = roleDao.findOne(playerId);
             long cm = role.money;
             //如果当前有足够的金币，并且扣除成功
-            if (cm > betMoney && playerDao.reduceMoney(playerId, betMoney)) {
+            if (cm >= betMoney && roleDao.reduceMoney(playerId, betMoney) >= 0) {
                 BetArea betArea = betAreas[areaType];
                 betArea.bet(playerId, betMoney);
-                broadcast(getGameInfo());
+                broadcastBetData();
             }
         }
     }
@@ -191,6 +194,9 @@ public class LHDGameController extends GameController<LHDConfigInfo> implements 
             BetMessage betMessage = (BetMessage) msg;
             long playerId = playerController.playerId();
             bet(playerId, betMessage.betArea, betMessage.betMoney);
+        } else if (msg instanceof StatusMessage) {
+            LHDStatusData lhdStatusData = getLhdStatusData();
+            sendMessage(playerController, lhdStatusData);
         }
     }
 
@@ -205,9 +211,17 @@ public class LHDGameController extends GameController<LHDConfigInfo> implements 
         return gameInfo;
     }
 
-    public void broadcastStatus() {
+    public LHDStatusData getLhdStatusData() {
         LHDStatusData lhdStatusData = new LHDStatusData();
         lhdStatusData.lhdStatus = currentStatus;
+        if (currentStatus == LHDStatus.BET) {
+            lhdStatusData.countdown = betCountDown();
+        }
+        return lhdStatusData;
+    }
+
+    public void broadcastStatus() {
+        LHDStatusData lhdStatusData = getLhdStatusData();
         broadcast(lhdStatusData);
     }
 

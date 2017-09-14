@@ -13,11 +13,10 @@ platform:
 logic:
   serverId: 1
   serverName: logic1
-  host: 192.168.7.169
+  host: 192.168.10.174
   port: 8082
   wsAddress: ws://${logic.host}:${logic.port}/logic/ws
   maxNum: 5000
-  centerRegisterUrl: http://localhost:8081/center/node/register
   debug: true
 
 server:
@@ -27,11 +26,17 @@ server:
  contextPath: /logic
 
 spring:
- data.mongodb.uri: mongodb://192.168.7.30:27017/cardchess
+ data.mongodb.uri: mongodb://192.168.10.30:27017/game
  redis:
-  host: 192.168.7.30
+  host: 192.168.10.30
   port: 6379
   password: alan
   database: 2
-  
+
+## Dubbo 消费者配置
+spring.dubbo:
+  application.name: consumer
+  protocol.name: dubbo
+  registry.address: zookeeper://192.168.10.30:2181
+  scan: com.gaea.game
     

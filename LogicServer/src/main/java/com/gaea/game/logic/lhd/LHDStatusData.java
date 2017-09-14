@@ -1,6 +1,6 @@
 package com.gaea.game.logic.lhd;
 
-import com.gaea.game.base.ws.WSMessage;
+import com.gaea.game.core.ws.WSMessage;
 import com.gaea.game.logic.constant.MessageConst;
 
 /**
@@ -12,4 +12,5 @@ import com.gaea.game.logic.constant.MessageConst;
 @WSMessage(resp = true, messageType = MessageConst.LHD.TYPE, cmd = MessageConst.LHD.RESP_LHD_STATUS_DATA)
 public class LHDStatusData {
     public LHDStatus lhdStatus;
+    public int countdown;
 }

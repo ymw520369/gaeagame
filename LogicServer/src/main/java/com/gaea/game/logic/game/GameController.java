@@ -1,7 +1,7 @@
 package com.gaea.game.logic.game;
 
-import com.gaea.game.base.dao.PlayerDao;
-import com.gaea.game.base.timer.TimerCenter;
+import com.gaea.game.core.dao.RoleDao;
+import com.gaea.game.core.timer.TimerCenter;
 import com.gaea.game.logic.data.GameInfo;
 import com.gaea.game.logic.data.PlayerController;
 import com.gaea.game.logic.room.RoomController;
@@ -17,8 +17,9 @@ public abstract class GameController<T extends GameConfigInfo> {
     /* 该游戏控制器所属的房间*/
     protected RoomController roomController;
     protected TimerCenter timerCenter;
-    protected PlayerDao playerDao;
+    protected RoleDao roleDao;
     protected T gameConfigInfo;
+
     public abstract void start();
 
     /**
@@ -81,19 +82,19 @@ public abstract class GameController<T extends GameConfigInfo> {
         this.timerCenter = timerCenter;
     }
 
-    public PlayerDao getPlayerDao() {
-        return playerDao;
-    }
-
-    public void setPlayerDao(PlayerDao playerDao) {
-        this.playerDao = playerDao;
-    }
-
     public T getGameConfigInfo() {
         return gameConfigInfo;
     }
 
     public void setGameConfigInfo(T gameConfigInfo) {
         this.gameConfigInfo = gameConfigInfo;
+    }
+
+    public RoleDao getRoleDao() {
+        return roleDao;
+    }
+
+    public void setRoleDao(RoleDao roleDao) {
+        this.roleDao = roleDao;
     }
 }

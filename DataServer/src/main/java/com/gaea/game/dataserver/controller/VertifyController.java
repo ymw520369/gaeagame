@@ -1,10 +1,14 @@
 package com.gaea.game.dataserver.controller;
 
-import com.gaea.game.base.constant.ResultEnum;
-import com.gaea.game.base.data.*;
-import com.gaea.game.base.manager.DataManager;
+import com.alibaba.fastjson.JSON;
+import com.gaea.game.core.constant.ResultEnum;
+import com.gaea.game.core.data.*;
 import com.gaea.game.dataserver.data.VertifyResult;
-import com.gaea.game.dataserver.manager.NodeManager;
+import com.gaea.game.dataserver.manager.DataManager;
+import com.gaea.game.dataserver.manager.LogicServerManager;
+import org.alan.utils.RandomUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Created on 2017/8/24.
@@ -23,20 +26,24 @@ import java.util.concurrent.atomic.AtomicInteger;
 @RestController
 @RequestMapping("/vertify")
 public class VertifyController {
-    AtomicInteger idcreate = new AtomicInteger();
     @Autowired
     DataManager dataManager;
     @Autowired
-    NodeManager nodeManager;
+    LogicServerManager logicServerManager;
+
+    Logger log = LoggerFactory.getLogger(getClass());
 
     @RequestMapping("/credential")
-    public VertifyResult vertify(HttpServletResponse response, VertifyInfo vertifyInfo) {
-        response.addHeader("Access-Control-Allow-Credentials","true");
+    public VertifyResult vertify(VertifyInfo vertifyInfo,HttpServletResponse response) {
+//        log.info(json);
+//        VertifyInfo vertifyInfo = JSON.parseObject(json, VertifyInfo.class);
+        log.info(JSON.toJSONString(vertifyInfo));
+        response.addHeader("Access-Control-Allow-Credentials", "true");
         response.addHeader("Access-Control-Allow-Origin", "*");
         VertifyResult vertifyResult;
         Credential credential = dataManager.vertifyAccount(vertifyInfo);
         if (credential != null) {
-            LogicServerInfo logicServerInfo = nodeManager.dynamicLoad();
+            LogicServerInfo logicServerInfo = logicServerManager.load();
             String logicUrl = logicServerInfo == null ? "" : logicServerInfo.serverAddress;
             vertifyResult = new VertifyResult(ResultEnum.SUCCESS, credential, logicUrl);
         } else {
@@ -48,8 +55,9 @@ public class VertifyController {
     @RequestMapping("/checkToken")
     public Map<String, Object> checkToken(CheckToken checkToken) {
         PlatformUserInfo platformUserInfo = new PlatformUserInfo();
-        int id = idcreate.getAndDecrement();
-        platformUserInfo.userId = "id" + id;
+        //int id = idcreate.getAndDecrement();
+        String id = RandomUtils.getRandomString(8);
+        platformUserInfo.uid = "id" + id;
         platformUserInfo.userName = "user" + id;
         platformUserInfo.sex = false;
         platformUserInfo.token = checkToken.token;

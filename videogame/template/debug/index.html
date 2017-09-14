@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Egret</title>
+    <title>catdog</title>
     <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="full-screen" content="true" />
@@ -25,14 +25,14 @@
 <body>
     <div style="margin: auto;width: 100%;height: 100%;" class="egret-player"
          data-entry-class="Main"
-         data-orientation="portrait"
+         data-orientation="auto"
          data-scale-mode="showAll"
          data-frame-rate="30"
          data-content-width="754"
          data-content-height="1334"
          data-show-paint-rect="false"
          data-multi-fingered="2"
-         data-show-fps="true" data-show-log="false"
+         data-show-fps="false" data-show-log="false"
          data-show-fps-style="x:0,y:0,size:12,textColor:0xffffff,bgAlpha:0.9">
     </div>
 <script>
@@ -82,53 +82,18 @@
         });
     });
     xhr.send(null);
-</script>
-<style>
-        video{
-            position:fixed;
-            right:0;
-            bottom:0;
-            min-width:100%;
-            min-height:100%;
-            width:auto;
-            height:auto;
-            z-index:-9999;
-        }
     
-    </style>
+    function EgretCallJS()
+    {
+       var obj = {};
+       obj.sessionId =  window.android.getSession();
+       obj.userId = window.android.getUserId();
+       obj.roomId = window.room.getRoomId();
+      return obj;
+    }
+</script>
 
-   <video  autoplay="autoplay"></video>
-    <script>
-         var srcVideo="";
-         var exArray = []; //存储设备源ID  
-         var video = document.querySelector('video'); 
-         window.onAR=false;
-         function getMedia() {  
-            if (navigator.getUserMedia) {  
-                navigator.getUserMedia({  
-                    'video': {  
-                        'optional': [{  
-                            'sourceId': exArray[1] //0为前置摄像头，1为后置  
-                        }]  
-                    },  
-                    'audio':true  
-                }, successFunc, errorFunc);    //success是获取成功的回调函数  
-            }  
-            else {  
-                alert('Native device media streaming (getUserMedia) not supported in this browser.');  
-            }  
-        } 
-          function successFunc(stream) {  
-            srcVideo = window.URL && window.URL.createObjectURL(stream) || stream;  
-            video.src = srcVideo; 
-             window.onAR=true;
-        }  
-        function errorFunc(e) {  
-            console.log(e)
-            alert('Error！'+e);  
-        }  
-        getMedia();
-    </script>
+  
 </body>
 
 </html>

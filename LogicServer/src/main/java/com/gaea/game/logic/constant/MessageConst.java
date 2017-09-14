@@ -7,6 +7,12 @@ package com.gaea.game.logic.constant;
  * @since 1.0
  */
 public interface MessageConst {
+    interface Role {
+        int TYPE = 800;
+        int REQ_ROLE_INFO = 1;
+        int RESP_ROLE_INFO = 2;
+    }
+
     interface Tips {
         int TYPE = 900;
         int RESP_GAME_TIPS = 901;
@@ -33,5 +39,6 @@ public interface MessageConst {
         int RESP_LHD_STATUS_DATA = 1204;
         int RESP_LHD_BET_DATA = 1206;
         int RESP_LHD_BILL_DATA = 1208;
+        int REQ_LHD_STATUS_COUNTDOWN = 1209;
     }
 }

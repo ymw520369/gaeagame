@@ -1,6 +1,6 @@
 package com.gaea.game.logic.message;
 
-import com.gaea.game.base.ws.WSMessage;
+import com.gaea.game.core.ws.WSMessage;
 import com.gaea.game.logic.constant.GameResultEnum;
 import com.gaea.game.logic.constant.MessageConst;
 

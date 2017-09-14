@@ -1,5 +1,6 @@
 package com.gaea.game.logic.room;
 
+import com.gaea.game.core.data.LogicRoomInfo;
 import com.gaea.game.logic.constant.GameResultEnum;
 import com.gaea.game.logic.data.GameInfo;
 import com.gaea.game.logic.data.PlayerController;
@@ -42,10 +43,12 @@ public class RoomController {
      *
      * @param playerController
      */
-    public void joinRoom(PlayerController playerController) {
+    public GameResultEnum joinRoom(PlayerController playerController) {
         roomPlayers.put(playerController.playerId(), playerController);
+        playerController.roomController = this;
         GameInfo gameInfo = gameController.getGameInfo();
         sendMessage(playerController, gameInfo);
+        return GameResultEnum.SUCCESS;
     }
 
     /**
@@ -89,5 +92,14 @@ public class RoomController {
         if (playerController != null) {
             sendMessage(playerController, msg);
         }
+    }
+
+    public LogicRoomInfo getLogicRoomInfo() {
+        LogicRoomInfo logicRoomInfo = new LogicRoomInfo();
+        logicRoomInfo.roomId = uid;
+        logicRoomInfo.currentNum = roomPlayers.size();
+        logicRoomInfo.gameSid = gameController.getGameConfigInfo().sid;
+        logicRoomInfo.ownerId=owner;
+        return logicRoomInfo;
     }
 }

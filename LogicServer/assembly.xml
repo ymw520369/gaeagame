@@ -1,0 +1,24 @@
+<assembly>
+    <!-- 项目打成Zip包的Id -->
+    <id>bin</id>
+    <formats>
+        <!-- 包的后缀 -->
+        <format>zip</format>
+    </formats>
+    <dependencySets>
+        <!-- 项目依赖包的输出目录，下面为当前目录的lib文件夹下 -->
+        <dependencySet>
+            <outputDirectory>/lib</outputDirectory>
+        </dependencySet>
+    </dependencySets>
+    <fileSets>
+        <fileSet>
+            <directory>/config</directory>
+            <outputDirectory>/config</outputDirectory>
+        </fileSet>
+        <fileSet>
+            <directory>/resources</directory>
+            <outputDirectory>/resources</outputDirectory>
+        </fileSet>
+    </fileSets>
+</assembly>

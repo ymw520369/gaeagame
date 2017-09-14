@@ -1,8 +1,8 @@
 package com.gaea.game.logic;
 
-import com.gaea.game.base.data.Credential;
-import com.gaea.game.base.protobuf.ProtostuffUtil;
-import com.gaea.game.base.ws.GameMessage;
+import com.gaea.game.core.data.Credential;
+import com.gaea.game.core.protobuf.ProtostuffUtil;
+import com.gaea.game.core.ws.GameMessage;
 
 import java.util.Arrays;
 

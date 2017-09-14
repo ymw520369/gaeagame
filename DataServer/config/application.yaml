@@ -1,10 +1,11 @@
 # Server settings (ServerProperties)
+
 logging:
  config: config/logback.xml
  level.*: debug
 platform:
-  secretKey: aaaaaaaaaaaaaaa
-  vertifyUrl: http://localhost:8081/center/vertify/checkToken
+  secretKey: game
+  vertifyUrl: http://192.168.10.2:7203/user/game/getGameUserInfo
   consumeUrl: http://localhost:8081/comsume
 
 server:
@@ -14,11 +15,19 @@ server:
  contextPath: /center
 
 spring:
- data.mongodb.uri: mongodb://192.168.7.30:27017/cardchess
+ data.mongodb.uri: mongodb://192.168.10.30:27017/game
  redis:
-  host: 192.168.7.30
+  host: 192.168.10.30
   port: 6379
   password: alan
   database: 2
-  
+
+## Dubbo ???????
+spring.dubbo:
+  application.name: provider
+  registry.address: zookeeper://192.168.10.30:2181
+  protocol.name: dubbo
+  protocol.port: 20880
+  scan: com.gaea.game
+
     

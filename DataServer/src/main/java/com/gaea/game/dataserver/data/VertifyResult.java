@@ -1,7 +1,7 @@
 package com.gaea.game.dataserver.data;
 
-import com.gaea.game.base.constant.ResultEnum;
-import com.gaea.game.base.data.Credential;
+import com.gaea.game.core.constant.ResultEnum;
+import com.gaea.game.core.data.Credential;
 
 /**
  * Created on 2017/8/24.

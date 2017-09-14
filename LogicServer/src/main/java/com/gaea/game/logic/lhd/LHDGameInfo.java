@@ -1,6 +1,6 @@
 package com.gaea.game.logic.lhd;
 
-import com.gaea.game.base.ws.WSMessage;
+import com.gaea.game.core.ws.WSMessage;
 import com.gaea.game.logic.constant.MessageConst;
 import com.gaea.game.logic.data.GameInfo;
 import com.gaea.game.logic.sample.game.LHDConfigInfo;

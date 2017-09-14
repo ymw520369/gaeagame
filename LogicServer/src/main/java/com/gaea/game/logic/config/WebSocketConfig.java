@@ -1,7 +1,7 @@
 package com.gaea.game.logic.config;
 
-import com.gaea.game.base.ws.LoginHandShakeInterceptor;
-import com.gaea.game.base.ws.WSMessageHandler;
+import com.gaea.game.core.ws.LoginHandShakeInterceptor;
+import com.gaea.game.core.ws.WSMessageHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

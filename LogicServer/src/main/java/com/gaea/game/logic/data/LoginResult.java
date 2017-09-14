@@ -1,8 +1,8 @@
 package com.gaea.game.logic.data;
 
-import com.gaea.game.base.constant.ResultEnum;
-import com.gaea.game.base.data.Player;
-import com.gaea.game.base.ws.WSMessage;
+import com.gaea.game.core.constant.ResultEnum;
+import com.gaea.game.core.data.Player;
+import com.gaea.game.core.ws.WSMessage;
 import com.gaea.game.logic.constant.MessageConst;
 import com.gaea.game.logic.dto.DTOUtil;
 import com.gaea.game.logic.dto.PlayerDTO;

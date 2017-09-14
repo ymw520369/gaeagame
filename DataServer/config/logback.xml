@@ -24,6 +24,7 @@
 	</appender>
 
 	<logger name="com.gaea" level="debug" />
+	<logger name="org.apache.commons.httpclient" level="error" />
 
 	<root level="info">
 		<appender-ref ref="console" />

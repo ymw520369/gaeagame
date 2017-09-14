@@ -6,7 +6,7 @@
 package com.gaea.game.logic.constant;
 
 
-import com.gaea.game.base.ws.WSMessage;
+import com.gaea.game.core.ws.WSMessage;
 
 /**
  * 游戏通用返回值枚举定义

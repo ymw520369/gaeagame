@@ -1,6 +1,6 @@
 package com.gaea.game.logic.message;
 
-import com.gaea.game.base.ws.GameSession;
+import com.gaea.game.core.ws.GameSession;
 import com.gaea.game.logic.constant.GameResultEnum;
 
 /**

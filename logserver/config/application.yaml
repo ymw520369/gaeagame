@@ -1,0 +1,27 @@
+# Server settings (ServerProperties)
+logging:
+ config: config/logback.xml
+ level.*: debug
+
+server:
+ port: 8083
+ address: 0.0.0.0
+ sessionTimeout: 30
+ contextPath: /log
+
+spring:
+ data.mongodb.uri: mongodb://192.168.10.30:27017/log
+ redis:
+  host: 192.168.10.30
+  port: 6379
+  password: alan
+  database: 3
+
+## Dubbo 消费者配置
+spring.dubbo:
+  application.name: provider
+  registry.address: zookeeper://192.168.10.30:2181
+  protocol.name: dubbo
+  protocol.port: 20883
+  scan: com.gaea.game
+    

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="SettlePopSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" >
+	<w:Config id="15e4235a49a" ></w:Config>
+	<e:Image id="lose_png" x="0" y="0" source="jiayou_png"/>
+	<e:Image id="win_png" x="0" y="0" source="gongxi_png"/>
+	<e:Label text="本家 ：" x="112" y="148"/>
+	<e:Label text="庄家：" x="112" y="194"/>
+	<e:Label id="playerText" text="Label" x="213" y="149" textAlign="left" anchorOffsetX="0" width="220"/>
+	<e:Label id="bankerText" text="Label" x="213" y="194" anchorOffsetX="0" width="220" textAlign="left"/>
+</e:Skin>

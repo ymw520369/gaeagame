@@ -1,6 +1,6 @@
 package com.gaea.game.logic.lhd;
 
-import com.gaea.game.base.ws.WSMessage;
+import com.gaea.game.core.ws.WSMessage;
 
 /**
  * Created on 2017/8/25.

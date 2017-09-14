@@ -1,6 +1,7 @@
 package com.gaea.game.logic.dto;
 
-import com.gaea.game.base.ws.WSMessage;
+import com.gaea.game.core.ws.WSMessage;
+import com.gaea.game.logic.constant.MessageConst;
 
 /**
  * Created on 2017/8/28.
@@ -8,10 +9,10 @@ import com.gaea.game.base.ws.WSMessage;
  * @author Alan
  * @since 1.0
  */
-@WSMessage
+@WSMessage(resp = true, messageType = MessageConst.Role.TYPE, cmd = MessageConst.Role.RESP_ROLE_INFO)
 public class RoleDTO {
     public String userId;
     public long roleUid;
     public String name;
-    private long money = 3;
+    public long money;
 }

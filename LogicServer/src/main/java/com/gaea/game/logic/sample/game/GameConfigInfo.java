@@ -5,11 +5,10 @@
  import com.gaea.game.logic.sample.SampleFactory;
  import com.gaea.game.logic.sample.impl.SampleFactoryImpl;
  import com.dyuproject.protostuff.Tag;
- import com.gaea.game.base.ws.WSMessage;
+ import com.gaea.game.core.ws.WSMessage;
  import javax.annotation.Generated;
- import java.util.*;
 
-/**
+ /**
  * Auto generate by "Python tools"
  * 
  * @Date 2017-09-01 17:04:29

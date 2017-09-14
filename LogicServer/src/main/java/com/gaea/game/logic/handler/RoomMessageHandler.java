@@ -1,8 +1,8 @@
 package com.gaea.game.logic.handler;
 
-import com.gaea.game.base.ws.Command;
-import com.gaea.game.base.ws.MessageType;
-import com.gaea.game.base.ws.WSMessage;
+import com.gaea.game.core.ws.Command;
+import com.gaea.game.core.ws.MessageType;
+import com.gaea.game.core.ws.WSMessage;
 import com.gaea.game.logic.constant.GameResultEnum;
 import com.gaea.game.logic.constant.MessageConst;
 import com.gaea.game.logic.data.PlayerController;

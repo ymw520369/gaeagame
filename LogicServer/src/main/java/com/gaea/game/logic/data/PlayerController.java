@@ -1,8 +1,8 @@
 package com.gaea.game.logic.data;
 
 
-import com.gaea.game.base.data.Player;
-import com.gaea.game.base.ws.GameSession;
+import com.gaea.game.core.data.Player;
+import com.gaea.game.core.ws.GameSession;
 import com.gaea.game.logic.room.RoomController;
 
 /**
