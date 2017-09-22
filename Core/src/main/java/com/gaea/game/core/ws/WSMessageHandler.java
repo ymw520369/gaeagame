@@ -4,10 +4,14 @@ import com.gaea.game.core.protobuf.ProtostuffUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.web.socket.BinaryMessage;
 import org.springframework.web.socket.CloseStatus;
 import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.BinaryWebSocketHandler;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Created on 2017/8/22.
@@ -27,6 +31,10 @@ public class WSMessageHandler extends BinaryWebSocketHandler {
         log.debug("连接建立，{}", session.getRemoteAddress());
         GameSession gameSession = new GameSession(session);
         session.getAttributes().put("session", gameSession);
+        HttpHeaders httpHeaders = session.getHandshakeHeaders();
+        httpHeaders.keySet().forEach(key ->
+                System.out.println(key + "->" +
+                        Arrays.toString(httpHeaders.getOrDefault(key, new ArrayList<String>()).toArray())));
     }
 
     @Override

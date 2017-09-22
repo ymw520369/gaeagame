@@ -7,12 +7,15 @@ sample:
   samplePath: resources/sample
   roleSaveInterval: 60
 platform:
-  secretKey: aaaaaaaaaaaaaaa
-  vertifyUrl: http://localhost:8081/vertify
+  secretKey: ASDASFRGFCLASMLL45J2KDMKFDSLK8922
+  vertifyUrl: http://192.168.10.2:7203/user/game/getGameUserInfo
   consumeUrl: http://localhost:8081/comsume
+  createRoomUpUrl: http://192.168.10.2:7204/tv/startGame/reportCreatedGameRoom.do
+
 logic:
   serverId: 1
   serverName: logic1
+  serverType: logic
   host: 192.168.10.174
   port: 8082
   wsAddress: ws://${logic.host}:${logic.port}/logic/ws

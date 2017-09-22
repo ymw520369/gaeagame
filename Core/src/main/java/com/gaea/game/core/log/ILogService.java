@@ -1,5 +1,7 @@
 package com.gaea.game.core.log;
 
+import java.util.Map;
+
 /**
  * 日志存储接口
  * <p>
@@ -10,5 +12,6 @@ package com.gaea.game.core.log;
  */
 public interface ILogService {
 
-    boolean log(Object logMessage);
+    boolean log(Map<String, Object> map);
+
 }

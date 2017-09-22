@@ -38,7 +38,7 @@ public class ServerRegister implements CommandLineRunner, TimerListener, ServerL
 
     @Override
     public void run(String... strings) throws Exception {
-        timerCenter.add(new TimerEvent<>(this, "Register", 60).withTimeUnit(TimeUnit.SECONDS));
+        timerCenter.add(new TimerEvent<>(this, "Register", 180).withTimeUnit(TimeUnit.SECONDS));
     }
 
     @Override

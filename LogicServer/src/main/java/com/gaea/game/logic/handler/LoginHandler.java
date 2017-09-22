@@ -13,6 +13,7 @@ import com.gaea.game.core.ws.MessageType;
 import com.gaea.game.logic.constant.MessageConst;
 import com.gaea.game.logic.data.LoginResult;
 import com.gaea.game.logic.data.PlayerController;
+import com.gaea.game.logic.manager.LogicLogger;
 import com.gaea.game.logic.manager.LogicServer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.HashOperations;
@@ -37,6 +38,9 @@ public class LoginHandler {
     @Resource(name = "redisRoleDao")
     RoleDao roleDao;
 
+    @Autowired
+    LogicLogger logicLogger;
+
 
     @Command(MessageConst.Login.REQ_VERTIFY)
     public void login(GameSession session, Credential credential) {
@@ -44,8 +48,8 @@ public class LoginHandler {
         UserInfo userInfo = hashOperations.get(RedisKey.ONLINE_PLAYER, credential.playerId);
         if (userInfo == null) {
             sendLoginResult(session, ResultEnum.FAILURE, null);
+            return;
         }
-
         String certifyToken = userInfo.credential.certifyToken;
         if (credential.certifyToken.equals(certifyToken)) {
             Role role = roleDao.findOne(userInfo.playerId);
@@ -58,6 +62,7 @@ public class LoginHandler {
             logicServer.playerOnline(playerController);
             userInfo.serverId = logicServer.logicConfig().serverId;
             hashOperations.put(RedisKey.ONLINE_PLAYER, credential.playerId, userInfo);
+            logicLogger.logLogin(role);
         } else {
             sendLoginResult(session, ResultEnum.FAILURE, null);
         }

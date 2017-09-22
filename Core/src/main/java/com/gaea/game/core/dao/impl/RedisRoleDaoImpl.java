@@ -2,10 +2,12 @@ package com.gaea.game.core.dao.impl;
 
 import com.gaea.game.core.dao.RoleDao;
 import com.gaea.game.core.data.Role;
+import com.gaea.game.core.log.GeneralLogger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.HashOperations;
-import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.stereotype.Repository;
+import org.springframework.dao.DataAccessException;
+import org.springframework.data.redis.core.*;
+
+import javax.annotation.Resource;
 
 import static com.gaea.game.core.constant.RedisKey.*;
 
@@ -15,17 +17,19 @@ import static com.gaea.game.core.constant.RedisKey.*;
  * @author Alan
  * @since 1.0
  */
-@Repository("redisRoleDao")
 public class RedisRoleDaoImpl implements RoleDao {
 
     @Autowired
     RedisTemplate redisTemplate;
 
+    @Resource(name = "logger")
+    GeneralLogger generalLogger;
+
     public long getRoleUidByUserId(String userId) {
         HashOperations<String, String, Long> hashOperations = redisTemplate.opsForHash();
-        Long roleUid = hashOperations.get(USER_ROLE_MAPPING_TABLE, userId);
+        Object roleUid = hashOperations.get(USER_ROLE_MAPPING_TABLE, userId);
         if (roleUid != null) {
-            return roleUid;
+            return Long.parseLong(roleUid.toString());
         }
         return 0L;
     }
@@ -38,9 +42,7 @@ public class RedisRoleDaoImpl implements RoleDao {
     @Override
     public Role findByUserId(String userId) {
         long roleUid = getRoleUidByUserId(userId);
-        HashOperations<String, Long, Role> hashOperations = redisTemplate.opsForHash();
-        Role role = hashOperations.get(ROLE_TABLE, roleUid);
-        return role;
+        return findOne(roleUid);
     }
 
     @Override
@@ -52,45 +54,83 @@ public class RedisRoleDaoImpl implements RoleDao {
     @Override
     public boolean existRoleName(String roleName) {
         HashOperations<String, String, Long> hashOperations = redisTemplate.opsForHash();
-        Long roleUid = hashOperations.get(ROLE_NAME_MAPPING_TABLE, roleName);
+        Object roleUid = hashOperations.get(ROLE_NAME_MAPPING_TABLE, roleName);
         return roleUid != null;
     }
 
     @Override
-    public long addMoney(long roleUid, long money) {
-        Role role = findOne(roleUid);
-        role.money += money;
-        save(role);
-        return role.money;
+    public long addMoney(long roleUid, long money, String addType) {
+        SessionCallback<Long> sessionCallback = new SessionCallback<Long>() {
+            @Override
+            public Long execute(RedisOperations operations) throws DataAccessException {
+                String key = roleKey(roleUid);
+                operations.watch(key);
+                Role role = (Role) operations.opsForValue().get(key);
+                operations.multi();
+                role.money += money;
+                operations.opsForValue().set(key, role);
+                operations.exec();
+                generalLogger.logAddmoney(role, addType, (int) money);
+                return role.money;
+            }
+        };
+        return (Long) redisTemplate.execute(sessionCallback);
     }
 
     @Override
-    public long reduceMoney(long roleUid, long money) {
-        Role role = findOne(roleUid);
-        if (role.money - money < 0) {
-            return -1;
-        }
-        role.money -= money;
-        save(role);
-        return role.money;
+    public long reduceMoney(long roleUid, long money, String reduceType) {
+        SessionCallback<Long> sessionCallback = new SessionCallback<Long>() {
+            @Override
+            public Long execute(RedisOperations operations) throws DataAccessException {
+                String key = roleKey(roleUid);
+                operations.watch(key);
+                Role role = (Role) operations.opsForValue().get(key);
+                operations.multi();
+                if (role.money - money < 0) {
+                    return -1L;
+                }
+                role.money -= money;
+                operations.opsForValue().set(key, role);
+                operations.exec();
+                generalLogger.logReducemoney(role, reduceType, (int) money);
+                return role.money;
+            }
+        };
+        return (Long) redisTemplate.execute(sessionCallback);
     }
 
     @Override
     public Role save(Role role) {
-        HashOperations<String, Long, Role> hashOperations = redisTemplate.opsForHash();
-        hashOperations.put(ROLE_TABLE, role.roleUid, role);
+        ValueOperations<String, Role> valueOperations = redisTemplate.opsForValue();
+        String key = roleKey(role.roleUid);
+        Role oldRole = valueOperations.get(key);
+        //首次插入
+        if (oldRole == null) {
+            HashOperations<String, String, Long> userHashOperations = redisTemplate.opsForHash();
+            userHashOperations.put(USER_ROLE_MAPPING_TABLE, role.userId, role.roleUid);
 
-        HashOperations<String, String, Long> userHashOperations = redisTemplate.opsForHash();
-        userHashOperations.put(USER_ROLE_MAPPING_TABLE, role.userId, role.roleUid);
-
-        HashOperations<String, String, Long> nameHashOperations = redisTemplate.opsForHash();
-        nameHashOperations.put(ROLE_NAME_MAPPING_TABLE, role.name, role.roleUid);
+            HashOperations<String, String, Long> nameHashOperations = redisTemplate.opsForHash();
+            nameHashOperations.put(ROLE_NAME_MAPPING_TABLE, role.name, role.roleUid);
+        }
+        redisTemplate.execute(new SessionCallback<Object>() {
+            @Override
+            public Object execute(RedisOperations operations) throws DataAccessException {
+                operations.watch(key);
+                operations.multi();
+                operations.opsForValue().set(roleKey(role.roleUid), role);
+                return operations.exec();
+            }
+        });
         return role;
     }
 
     @Override
     public Role findOne(Long roleUid) {
-        HashOperations<String, Long, Role> hashOperations = redisTemplate.opsForHash();
-        return hashOperations.get(ROLE_TABLE, roleUid);
+        ValueOperations<String, Role> valueOperations = redisTemplate.opsForValue();
+        return valueOperations.get(roleKey(roleUid));
+    }
+
+    public String roleKey(long roleUid) {
+        return ROLE_TABLE + roleUid;
     }
 }

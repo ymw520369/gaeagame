@@ -15,6 +15,7 @@ public class PlatformConfig {
     public String secretKey;
     public String vertifyUrl;
     public String consumeUrl;
+    public String createRoomUpUrl;
 
     public String getSecretKey() {
         return secretKey;
@@ -38,5 +39,13 @@ public class PlatformConfig {
 
     public void setConsumeUrl(String consumeUrl) {
         this.consumeUrl = consumeUrl;
+    }
+
+    public String getCreateRoomUpUrl() {
+        return createRoomUpUrl;
+    }
+
+    public void setCreateRoomUpUrl(String createRoomUpUrl) {
+        this.createRoomUpUrl = createRoomUpUrl;
     }
 }

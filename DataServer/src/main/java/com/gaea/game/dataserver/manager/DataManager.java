@@ -32,6 +32,8 @@ public class DataManager {
     private RoleDao roleDao;
     @Autowired
     private UidDao uidDao;
+    @Autowired
+    DSLogger dsLogger;
 
     public Credential vertifyAccount(VertifyInfo vertifyInfo) {
         PlatformUserInfo platformUserInfo = null;
@@ -78,7 +80,7 @@ public class DataManager {
         String id = RandomUtils.getRandomString(8);
         platformUserInfo.uid = "id" + id;
         platformUserInfo.userName = "user" + id;
-        platformUserInfo.sex = false;
+        platformUserInfo.sex = 1;
         platformUserInfo.token = vertifyInfo.token;
 
         return platformUserInfo;
@@ -92,6 +94,7 @@ public class DataManager {
         role.userId = platformUserInfo.uid;
         role.money = 10000L;
         roleDao.save(role);
+        dsLogger.logCreateRole(role);
         return role;
     }
 }

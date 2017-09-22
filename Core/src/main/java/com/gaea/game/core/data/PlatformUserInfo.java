@@ -11,7 +11,7 @@ package com.gaea.game.core.data;
 public class PlatformUserInfo {
     public String uid;
     public String userName;
-    public boolean sex;
+    public byte sex;
     public int diamone;
     public String token;
 
@@ -39,11 +39,11 @@ public class PlatformUserInfo {
         this.userName = userName;
     }
 
-    public boolean isSex() {
+    public byte getSex() {
         return sex;
     }
 
-    public void setSex(boolean sex) {
+    public void setSex(byte sex) {
         this.sex = sex;
     }
 

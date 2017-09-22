@@ -1,6 +1,7 @@
 package com.gaea.game.logic.config;
 
 import com.gaea.game.core.ws.LoginHandShakeInterceptor;
+import com.gaea.game.core.ws.PingMessageHandler;
 import com.gaea.game.core.ws.WSMessageHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -38,5 +39,10 @@ public class WebSocketConfig implements WebSocketConfigurer {
     @Bean
     public HandshakeInterceptor handshakeInterceptor() {
         return new LoginHandShakeInterceptor();
+    }
+
+    @Bean
+    public PingMessageHandler pingMessageHandler() {
+        return new PingMessageHandler();
     }
 }

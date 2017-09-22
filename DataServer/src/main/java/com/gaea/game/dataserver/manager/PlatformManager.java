@@ -39,7 +39,7 @@ public class PlatformManager {
      */
     public PlatformUserInfo vertify(VertifyInfo vertifyInfo) {
         Map<String, String> param = new HashMap<>();
-        String source = vertifyInfo.uuid + vertifyInfo.token + platformConfig.secretKey;
+        String source = vertifyInfo.uuid +"&"+ vertifyInfo.token + platformConfig.secretKey;
         try {
             //String sign = MD5Utils.encoderByMd5(source);
 

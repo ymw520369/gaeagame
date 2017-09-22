@@ -144,11 +144,11 @@
     <distributionManagement>
         <repository>
             <id>gaea-releases</id>
-            <url>http://192.168.7.2:8081/nexus/content/repositories/releases</url>
+            <url>http://192.168.10.2:8081/nexus/content/repositories/releases</url>
         </repository>
         <snapshotRepository>
             <id>gaea-snapshots</id>
-            <url>http://192.168.7.2:8081/nexus/content/repositories/snapshots</url>
+            <url>http://192.168.10.2:8081/nexus/content/repositories/snapshots</url>
         </snapshotRepository>
     </distributionManagement>
 </project>

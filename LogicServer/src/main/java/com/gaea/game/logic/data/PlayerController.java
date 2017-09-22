@@ -16,10 +16,12 @@ public class PlayerController {
     public RoomController roomController;
     public long playerId;
     public String playerName;
+    public Player player;
 
     public PlayerController(Player player) {
         this.playerId = player.role.roleUid;
         this.playerName = player.role.name;
+        this.player = player;
     }
 
     public long playerId() {

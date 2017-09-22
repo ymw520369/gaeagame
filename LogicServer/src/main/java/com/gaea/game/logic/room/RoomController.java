@@ -25,6 +25,9 @@ public class RoomController {
     public GameConfigInfo gameStaticInfo;
     /* 房间的唯一ID*/
     public long uid;
+
+    public long liveRoomUid;
+
     public Map<Long, PlayerController> roomPlayers = new ConcurrentHashMap<>();
 
     public GameController gameController;
@@ -36,6 +39,14 @@ public class RoomController {
         }
         this.gameStaticInfo = gameStaticInfo;
         this.uid = uid;
+    }
+
+    public long getLiveRoomUid() {
+        return liveRoomUid;
+    }
+
+    public void setLiveRoomUid(long liveRoomUid) {
+        this.liveRoomUid = liveRoomUid;
     }
 
     /**

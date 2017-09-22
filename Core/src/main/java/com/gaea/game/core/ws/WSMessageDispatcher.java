@@ -63,5 +63,6 @@ public class WSMessageDispatcher implements ApplicationListener<ContextRefreshed
     public void onApplicationEvent(ContextRefreshedEvent event) {
         messageControllers = MessageUtil.load(event.getApplicationContext());
         GameSession.responseMap = MessageUtil.loadResponseMessage("com.gaea");
+        messageControllers.entrySet().forEach(e -> log.info("消息处理器[{}]->{}", e.getKey(), e.getValue().getClass().getName()));
     }
 }

@@ -5,6 +5,7 @@
 
 package com.gaea.game.logic.config;
 
+import com.gaea.game.core.config.ServerConfig;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
@@ -16,31 +17,13 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @ConfigurationProperties(prefix = "logic")
-public class LogicConfig {
-    public int serverId;
-    public String serverName;
+public class LogicConfig extends ServerConfig {
     public String host;
     public int port;
     public String wsAddress;
     public int maxNum;
     public String centerRegisterUrl;
     public boolean debug;
-
-    public int getServerId() {
-        return serverId;
-    }
-
-    public void setServerId(int serverId) {
-        this.serverId = serverId;
-    }
-
-    public String getServerName() {
-        return serverName;
-    }
-
-    public void setServerName(String serverName) {
-        this.serverName = serverName;
-    }
 
     public String getHost() {
         return host;

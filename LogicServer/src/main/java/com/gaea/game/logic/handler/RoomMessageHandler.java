@@ -24,6 +24,7 @@ public class RoomMessageHandler {
     @WSMessage
     public static class CreateGame {
         public int gameSid;
+        public long liveRoomId;
     }
 
     @WSMessage
@@ -46,7 +47,7 @@ public class RoomMessageHandler {
 
     @Command(MessageConst.ROOM.REQ_CREATE_ROOM)
     public void createRoom(PlayerController playerController, CreateGame createRoom) {
-        GameResultEnum gameResultEnum = roomManager.createRoom(playerController, createRoom.gameSid);
+        GameResultEnum gameResultEnum = roomManager.createRoom(playerController, createRoom.gameSid,createRoom.liveRoomId);
         if (gameResultEnum != GameResultEnum.SUCCESS) {
             MessageToClient.sendTimerGameTips(playerController.session, gameResultEnum);
         }

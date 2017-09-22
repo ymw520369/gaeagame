@@ -9,6 +9,8 @@ import com.gaea.game.core.data.Role;
  */
 public interface RoleDao {
 
+    long getRoleUidByUserId(String userId);
+
     boolean existRoleByUser(String userId);
 
     Role findByUserId(String userId);
@@ -17,9 +19,9 @@ public interface RoleDao {
 
     boolean existRoleName(String roleName);
 
-    long addMoney(long roleUid, long money);
+    long addMoney(long roleUid, long money,String addType);
 
-    long reduceMoney(long roleUid, long money);
+    long reduceMoney(long roleUid, long money,String reduceType);
 
     Role save(Role role);
 

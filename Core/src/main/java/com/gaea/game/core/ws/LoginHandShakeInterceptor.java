@@ -5,6 +5,8 @@ import org.springframework.http.server.ServerHttpResponse;
 import org.springframework.web.socket.WebSocketHandler;
 import org.springframework.web.socket.server.HandshakeInterceptor;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Map;
 
 /**
@@ -20,7 +22,10 @@ public class LoginHandShakeInterceptor implements HandshakeInterceptor {
     @Override
     public boolean beforeHandshake(ServerHttpRequest request, ServerHttpResponse response, WebSocketHandler wsHandler,
                                    Map<String, Object> attributes) throws Exception {
-
+        System.out.println("握手之前...");
+        request.getHeaders().keySet().forEach(key ->
+                System.out.println(key + "->" +
+                        Arrays.toString(request.getHeaders().getOrDefault(key, new ArrayList<String>()).toArray())));
         return true;
     }
 

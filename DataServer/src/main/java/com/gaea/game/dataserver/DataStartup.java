@@ -1,7 +1,10 @@
 package com.gaea.game.dataserver;
 
+import com.gaea.game.core.dao.RoleDao;
+import com.gaea.game.core.dao.impl.RedisRoleDaoImpl;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 
 /**
@@ -15,5 +18,10 @@ import org.springframework.context.annotation.ComponentScan;
 public class DataStartup {
     public static void main(String[] args) {
         SpringApplication.run(DataStartup.class, args);
+    }
+
+    @Bean("redisRoleDao")
+    public RoleDao roleDao() {
+        return new RedisRoleDaoImpl();
     }
 }

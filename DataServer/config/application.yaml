@@ -4,9 +4,15 @@ logging:
  config: config/logback.xml
  level.*: debug
 platform:
-  secretKey: game
+  secretKey: ASDASFRGFCLASMLL45J2KDMKFDSLK8922
   vertifyUrl: http://192.168.10.2:7203/user/game/getGameUserInfo
   consumeUrl: http://localhost:8081/comsume
+
+dsconfig:
+  serverId: 1001
+  serverName: data1
+  serverType: data
+  debug: true
 
 server:
  port: 8081

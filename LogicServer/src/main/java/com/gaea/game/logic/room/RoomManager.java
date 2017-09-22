@@ -1,10 +1,12 @@
 package com.gaea.game.logic.room;
 
 import com.alibaba.dubbo.config.annotation.Reference;
+import com.alibaba.fastjson.JSON;
 import com.gaea.game.core.dao.RoleDao;
 import com.gaea.game.core.dao.uid.UidDao;
 import com.gaea.game.core.dao.uid.UidTypeEnum;
 import com.gaea.game.core.data.LogicRoomInfo;
+import com.gaea.game.core.data.PlatformConfig;
 import com.gaea.game.core.dubbo.ILogicService;
 import com.gaea.game.core.timer.TimerCenter;
 import com.gaea.game.logic.config.LogicConfig;
@@ -14,12 +16,13 @@ import com.gaea.game.logic.data.PlayerController;
 import com.gaea.game.logic.game.GameController;
 import com.gaea.game.logic.sample.game.GameConfigInfo;
 import org.alan.utils.ClassUtils;
+import org.alan.utils.HttpUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -49,12 +52,15 @@ public class RoomManager implements CommandLineRunner {
     RoleDao roleDao;
     @Reference(version = "1.0.0")
     ILogicService logicService;
+    @Autowired
+    PlatformConfig platformConfig;
 
-    public GameResultEnum createRoom(PlayerController playerController, int gameSid) {
+    public GameResultEnum createRoom(PlayerController playerController, int gameSid, long liveRoomId) {
         long uid = uidDao.getAndUpdateUid(UidTypeEnum.ROOM_UID, 1);
         GameConfigInfo gameConfigInfo = GameConfigInfo.getGameConfigInfo(gameSid);
         RoomController roomController = new RoomController(playerController, gameConfigInfo, uid);
-        rooms.put(1L, roomController);
+        roomController.setLiveRoomUid(liveRoomId);
+        rooms.put(uid, roomController);
         Class<GameController> clazz = gameTypeClassMap.get(gameConfigInfo.gameType);
         try {
             GameController gameController = clazz.newInstance();
@@ -72,11 +78,38 @@ public class RoomManager implements CommandLineRunner {
             LogicRoomInfo logicRoomInfo = roomController.getLogicRoomInfo();
             logicRoomInfo.wsAddress = logicConfig.wsAddress;
             logicService.addRoom(logicRoomInfo);
+
+            if (liveRoomId > 0) {
+                uploadCreateRoom(roomController);
+            }
             return GameResultEnum.SUCCESS;
         } catch (Exception e) {
             log.warn("房间生成失败", e);
         }
         return GameResultEnum.CREATE_ROOM_FAIL;
+    }
+
+    public void uploadCreateRoom(RoomController roomController) {
+        if (!StringUtils.isEmpty(platformConfig.createRoomUpUrl)) {
+            Map<String, String> params = new HashMap<>();
+            params.put("avRoomId", "" + roomController.getLiveRoomUid());
+            params.put("gameRoomId", "" + roomController.uid);
+            params.put("gameName", roomController.gameController.getGameConfigInfo().getName());
+            try {
+                HttpUtils.HttpResponse httpResponse = HttpUtils.doPost(platformConfig.createRoomUpUrl, params);
+                if (httpResponse.isOk()) {
+                    if (httpResponse.getIntValue("resultCode") == 1) {
+                        log.debug("上传房间数据成功，roomInfo={}", JSON.toJSONString(params));
+                    } else {
+                        log.warn("上传房间数据失败，des={}，roomInfo={}", httpResponse.getValueByKey("resultMessage"), JSON.toJSONString(params));
+                    }
+                } else {
+                    log.warn("上传房间数据失败，stateCode={},url={}", httpResponse.getStatusCode(), platformConfig.createRoomUpUrl);
+                }
+            } catch (Exception e) {
+                log.warn("", e);
+            }
+        }
     }
 
     public GameResultEnum joinRoom(PlayerController playerController, long roomId) {
@@ -102,7 +135,7 @@ public class RoomManager implements CommandLineRunner {
 
         //前期系统默认创建一个房间
         if (logicConfig.debug) {
-            createRoom(null, 1);
+            createRoom(null, 1, -1);
         }
 
     }

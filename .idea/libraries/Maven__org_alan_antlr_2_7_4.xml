@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.alan:antlr:2.7.4">
+    <CLASSES>
+      <root url="jar://D:/m2_repository/org/alan/antlr/2.7.4/antlr-2.7.4.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://D:/m2_repository/org/alan/antlr/2.7.4/antlr-2.7.4-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://D:/m2_repository/org/alan/antlr/2.7.4/antlr-2.7.4-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

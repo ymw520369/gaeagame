@@ -59,7 +59,7 @@ public class VertifyController {
         String id = RandomUtils.getRandomString(8);
         platformUserInfo.uid = "id" + id;
         platformUserInfo.userName = "user" + id;
-        platformUserInfo.sex = false;
+        platformUserInfo.sex = 1;
         platformUserInfo.token = checkToken.token;
 
         Map<String, Object> result = new HashMap<>();

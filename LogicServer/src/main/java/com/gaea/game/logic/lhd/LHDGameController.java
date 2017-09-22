@@ -124,7 +124,7 @@ public class LHDGameController extends GameController<LHDConfigInfo> implements 
             long betMoney = e.getValue().get();
             long getMoney = (long) (betMoney * odds);
             //给用户增加金币
-            roleDao.addMoney(playerId, getMoney);
+            roleDao.addMoney(playerId, getMoney, "win");
             calculateMap.put(playerId, getMoney);
         });
 
@@ -179,7 +179,7 @@ public class LHDGameController extends GameController<LHDConfigInfo> implements 
             Role role = roleDao.findOne(playerId);
             long cm = role.money;
             //如果当前有足够的金币，并且扣除成功
-            if (cm >= betMoney && roleDao.reduceMoney(playerId, betMoney) >= 0) {
+            if (cm >= betMoney && roleDao.reduceMoney(playerId, betMoney, "bet") >= 0) {
                 BetArea betArea = betAreas[areaType];
                 betArea.bet(playerId, betMoney);
                 broadcastBetData();

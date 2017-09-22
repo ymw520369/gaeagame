@@ -3,6 +3,12 @@ logging:
  config: config/logback.xml
  level.*: debug
 
+logconfig:
+ recordPath: cache/record
+ sampleFile: config/sample.log.xml
+ updateTable: false
+
+
 server:
  port: 8083
  address: 0.0.0.0

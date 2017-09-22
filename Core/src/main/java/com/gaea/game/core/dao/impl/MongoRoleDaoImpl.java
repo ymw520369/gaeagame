@@ -32,6 +32,15 @@ public class MongoRoleDaoImpl extends MongoBaseDao<Role, Long> implements RoleDa
     }
 
     @Override
+    public long getRoleUidByUserId(String userId) {
+        Role role = findByUserId(userId);
+        if (role != null) {
+            return role.roleUid;
+        }
+        return 0;
+    }
+
+    @Override
     public boolean existRoleByUser(String userId) {
         return mongoTemplate.exists(Query.query(Criteria.where("userUid").is(userId)), Role.class);
     }
@@ -70,7 +79,7 @@ public class MongoRoleDaoImpl extends MongoBaseDao<Role, Long> implements RoleDa
     }
 
     @Override
-    public long addMoney(long roleUid, long money) {
+    public long addMoney(long roleUid, long money,String addType) {
         Query query = Query.query(Criteria.where("roleUid").is(roleUid));
         Role role = mongoTemplate.findOne(query, Role.class);
         if (role != null) {
@@ -87,7 +96,7 @@ public class MongoRoleDaoImpl extends MongoBaseDao<Role, Long> implements RoleDa
     }
 
     @Override
-    public long reduceMoney(long roleUid, long money) {
+    public long reduceMoney(long roleUid, long money,String reduceType) {
         Query query = Query.query(Criteria.where("roleUid").is(roleUid));
         Role role = mongoTemplate.findOne(query, Role.class);
         if (role != null) {

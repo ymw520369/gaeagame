@@ -10,7 +10,7 @@
 	</appender>
 	<!-- ch.qos.logback.core.rolling.RollingFileAppender 文件日志输出 -->
 	<appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<File>${LOG_HOME}/miner-center.log</File>
+		<File>${LOG_HOME}/logserver.log</File>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<FileNamePattern>${LOG_HOME}/logicserver-%d{yyyy-MM-dd}-%i.log</FileNamePattern>
 			<MaxHistory>20</MaxHistory>

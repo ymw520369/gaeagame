@@ -1,5 +1,7 @@
 package com.gaea.game.logic;
 
+import com.gaea.game.core.dao.RoleDao;
+import com.gaea.game.core.dao.impl.RedisRoleDaoImpl;
 import com.gaea.game.core.timer.TimerCenter;
 import com.gaea.game.core.ws.WSMessageDispatcher;
 import org.apache.commons.io.monitor.FileAlterationMonitor;
@@ -51,5 +53,10 @@ public class LogicStartup implements ApplicationRunner {
     public void run(ApplicationArguments applicationArguments) throws Exception {
         timerCenter.start();
         monitor.start();
+    }
+
+    @Bean("redisRoleDao")
+    public RoleDao roleDao() {
+        return new RedisRoleDaoImpl();
     }
 }

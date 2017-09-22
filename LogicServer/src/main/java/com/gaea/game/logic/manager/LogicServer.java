@@ -37,6 +37,8 @@ public class LogicServer implements GameSessionListener {
     private LogicConfig logicConfig;
 
     Map<Long, PlayerController> onlinePlayers = new HashMap<>();
+    @Autowired
+    LogicLogger logicLogger;
 
     public LogicConfig logicConfig() {
         return logicConfig;
@@ -63,6 +65,7 @@ public class LogicServer implements GameSessionListener {
             hashOperations.delete(RedisKey.ONLINE_PLAYER, roleUid);
             onlinePlayers.remove(playerController.playerId());
             RoomController roomController = playerController.roomController;
+            logicLogger.logLogout(playerController.player.role);
             if (roomController != null) {
                 roomController.exitRoom(playerController);
             }

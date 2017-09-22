@@ -1,0 +1,205 @@
+message BetMessage {
+  optional uint32 betArea = 1;
+  optional int32 betMoney = 2;
+}
+
+message IntegerMessage {
+  optional int32 value = 1;
+}
+
+enum GameResultEnum {
+  SUCCESS = 0;
+  FAILURE = 1;
+  ILLEGAL = 2;
+  ERROR = 3;
+  ROLE_CREATED = 4;
+  ROLE_REPEAT = 5;
+  NOT_ENOUGH_GOLD = 6;
+  NOT_ENOUGH_DIAMOND = 7;
+  FINISH_QUEST = 8;
+  LENGTH_TOO_LONG = 9;
+  NEED_GET_AWARD = 10;
+  SEASON_NOT_OPENED = 11;
+  CREATE_ROOM_FAIL = 12;
+  JOIN_ROOM_FAIL = 13;
+}
+
+message RoleDTO {
+  optional string userId = 1;
+  optional int64 roleUid = 2;
+  optional string name = 3;
+  optional int64 money = 4;
+}
+
+message ExitRoom {
+  optional int32 roomId = 1;
+}
+
+message Credential {
+  optional string certifyToken = 1;
+  optional int64 playerId = 2;
+  optional string sign = 3;
+  optional int32 certifyTime = 4;
+}
+
+message VertifyInfo {
+  optional string token = 1;
+  optional string uuid = 2;
+  optional int32 roomId = 3;
+}
+
+message CreateGame {
+  optional int32 gameSid = 1;
+  optional int64 liveRoomId = 2;
+}
+
+message LHDStatusData {
+  required LHDStatus lhdStatus = 1;
+  optional int32 countdown = 2;
+}
+
+enum GameType {
+  LHD = 0;
+}
+
+enum BetAreaType {
+  LONG = 0;
+  HE = 1;
+  HU = 2;
+}
+
+message LoginResult {
+  required ResultEnum result = 1;
+  optional PlayerDTO player = 2;
+}
+
+message JoinRoom {
+  optional int32 roomId = 1;
+}
+
+message GameConfigInfo {
+  optional int32 sid = 1;
+  optional string name = 2;
+  optional int32 gameType = 3;
+}
+
+message Pong {
+  optional int64 time = 1;
+}
+
+message Poker {
+  optional int32 sid = 1;
+  optional string name = 2;
+  optional int32 type = 3;
+  optional int32 value = 4;
+}
+
+enum LHDStatus {
+  IDEL = 0;
+  READY = 1;
+  BET = 2;
+  BILL = 3;
+}
+
+message StatusMessage {
+  optional bool flag = 1;
+}
+
+message BetAreaDto {
+  required BetAreaType betAreaType = 1;
+  optional int64 totalBet = 2;
+  optional int64 selfBet = 3;
+}
+
+message LHDBetStatusData {
+  required LHDStatus lhdStatus = 1;
+  optional int32 countdown = 2;
+  repeated BetAreaDto betAreaDtos = 3;
+  optional int32 countDown = 4;
+}
+
+message LHDConfigInfo {
+  optional int32 sid = 1;
+  optional string name = 2;
+  optional int32 gameType = 3;
+  optional float longOdds = 4;
+  optional float heOdds = 5;
+  optional float huOdds = 6;
+  optional int32 readyTime = 7;
+  optional int32 betTime = 8;
+  optional int32 billTime = 9;
+  optional int32 idelTime = 10;
+  optional int32 totalTime = 11;
+  optional int32 minBet = 12;
+  optional int32 maxBet = 13;
+  optional int32 defaultBet = 14;
+  repeated int32 chips = 15;
+}
+
+message GameTips {
+  optional int32 tipsType = 1;
+  optional int32 resultCode = 2;
+  optional string resultDes = 3;
+}
+
+message LHDBillStatusData {
+  required LHDStatus lhdStatus = 1;
+  optional int32 countdown = 2;
+  optional int64 playerBet = 3;
+  optional int64 playerWinMoney = 4;
+  optional int64 playerMoney = 5;
+  optional int64 totalBet = 6;
+  optional int64 totalWinMoney = 7;
+  optional Poker longCard = 8;
+  optional Poker huCard = 9;
+}
+
+message LHDGameInfo {
+  optional int64 ownerId = 1;
+  optional int64 roomUid = 2;
+  optional int32 round = 3;
+  required LHDStatus currentStatus = 4;
+  optional LHDConfigInfo lhdConfigInfo = 5;
+}
+
+enum ResultEnum {
+  SUCCESS = 0;
+  FAILURE = 1;
+  ILLEGAL = 2;
+  ERROR = 3;
+  ROLE_CREATED = 4;
+  ROLE_REPEAT = 5;
+  NOT_ENOUGH_GOLD = 6;
+  NOT_ENOUGH_DIAMOND = 7;
+  FINISH_QUEST = 8;
+  LENGTH_TOO_LONG = 9;
+  NEED_GET_AWARD = 10;
+  SEASON_NOT_OPENED = 11;
+}
+
+message GameMessage {
+  optional int32 messageType = 1;
+  optional int32 cmd = 2;
+  optional bytes data = 3;
+}
+
+message StringMessage {
+  optional string value = 1;
+}
+
+message ExitRoomResult {
+  required GameResultEnum gameResultEnum = 1;
+}
+
+message PlayerDTO {
+  optional RoleDTO role = 1;
+  optional int32 sceneId = 2;
+}
+
+message LogicServerInfo {
+  optional int32 serverId = 1;
+  optional string serverName = 2;
+  optional string serverAddress = 3;
+  optional int32 currentNum = 4;
+}
+
