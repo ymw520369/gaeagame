@@ -40,6 +40,6 @@ spring:
 spring.dubbo:
   application.name: consumer
   protocol.name: dubbo
-  registry.address: zookeeper://192.168.10.30:2181
+  registry.address: zookeeper://192.168.10.30:2181/test
   scan: com.gaea.game
     

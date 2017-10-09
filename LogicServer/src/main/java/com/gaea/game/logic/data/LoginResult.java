@@ -20,6 +20,8 @@ public class LoginResult {
 
     public LoginResult(ResultEnum result, Player player) {
         this.result = result;
-        this.player = DTOUtil.toPlayer(player);
+        if(player!=null) {
+            this.player = DTOUtil.toPlayer(player);
+        }
     }
 }

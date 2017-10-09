@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.Map;
@@ -34,14 +35,13 @@ public class VertifyController {
     Logger log = LoggerFactory.getLogger(getClass());
 
     @RequestMapping("/credential")
-    public VertifyResult vertify(VertifyInfo vertifyInfo,HttpServletResponse response) {
-//        log.info(json);
-//        VertifyInfo vertifyInfo = JSON.parseObject(json, VertifyInfo.class);
-        log.info(JSON.toJSONString(vertifyInfo));
+    public VertifyResult vertify(HttpServletRequest request, VertifyInfo vertifyInfo, HttpServletResponse response) {
+        log.info("登录认证，data={}", JSON.toJSONString(vertifyInfo));
         response.addHeader("Access-Control-Allow-Credentials", "true");
         response.addHeader("Access-Control-Allow-Origin", "*");
         VertifyResult vertifyResult;
-        Credential credential = dataManager.vertifyAccount(vertifyInfo);
+        String addr = request.getRemoteHost();
+        Credential credential = dataManager.vertifyAccount(addr, vertifyInfo);
         if (credential != null) {
             LogicServerInfo logicServerInfo = logicServerManager.load();
             String logicUrl = logicServerInfo == null ? "" : logicServerInfo.serverAddress;

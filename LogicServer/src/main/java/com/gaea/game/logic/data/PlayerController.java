@@ -2,6 +2,7 @@ package com.gaea.game.logic.data;
 
 
 import com.gaea.game.core.data.Player;
+import com.gaea.game.core.data.UserInfo;
 import com.gaea.game.core.ws.GameSession;
 import com.gaea.game.logic.room.RoomController;
 
@@ -14,6 +15,7 @@ import com.gaea.game.logic.room.RoomController;
 public class PlayerController {
     public GameSession session;
     public RoomController roomController;
+    public UserInfo userInfo;
     public long playerId;
     public String playerName;
     public Player player;
@@ -30,6 +32,14 @@ public class PlayerController {
 
     public String playerName() {
         return playerName;
+    }
+
+    public UserInfo getUserInfo() {
+        return userInfo;
+    }
+
+    public void setUserInfo(UserInfo userInfo) {
+        this.userInfo = userInfo;
     }
 
     public void sendToClient(Object msg) {

@@ -1,0 +1,314 @@
+{
+	"1": {
+		"res": "red_A",
+		"type": 1,
+		"value": 1,
+		"id": 1
+	},
+	"2": {
+		"res": "red_2",
+		"type": 1,
+		"value": 2,
+		"id": 2
+	},
+	"3": {
+		"res": "red_3",
+		"type": 1,
+		"value": 3,
+		"id": 3
+	},
+	"4": {
+		"res": "red_4",
+		"type": 1,
+		"value": 4,
+		"id": 4
+	},
+	"5": {
+		"res": "red_5",
+		"type": 1,
+		"value": 5,
+		"id": 5
+	},
+	"6": {
+		"res": "red_6",
+		"type": 1,
+		"value": 6,
+		"id": 6
+	},
+	"7": {
+		"res": "red_7",
+		"type": 1,
+		"value": 7,
+		"id": 7
+	},
+	"8": {
+		"res": "red_8",
+		"type": 1,
+		"value": 8,
+		"id": 8
+	},
+	"9": {
+		"res": "red_9",
+		"type": 1,
+		"value": 9,
+		"id": 9
+	},
+	"10": {
+		"res": "red_10",
+		"type": 1,
+		"value": 10,
+		"id": 10
+	},
+	"11": {
+		"res": "red_J",
+		"type": 1,
+		"value": 11,
+		"id": 11
+	},
+	"12": {
+		"res": "red_Q",
+		"type": 1,
+		"value": 12,
+		"id": 12
+	},
+	"13": {
+		"res": "red_K",
+		"type": 1,
+		"value": 13,
+		"id": 13
+	},
+	"14": {
+		"res": "black_A",
+		"type": 2,
+		"value": 1,
+		"id": 14
+	},
+	"15": {
+		"res": "black_2",
+		"type": 2,
+		"value": 2,
+		"id": 15
+	},
+	"16": {
+		"res": "black_3",
+		"type": 2,
+		"value": 3,
+		"id": 16
+	},
+	"17": {
+		"res": "black_4",
+		"type": 2,
+		"value": 4,
+		"id": 17
+	},
+	"18": {
+		"res": "black_5",
+		"type": 2,
+		"value": 5,
+		"id": 18
+	},
+	"19": {
+		"res": "black_6",
+		"type": 2,
+		"value": 6,
+		"id": 19
+	},
+	"20": {
+		"res": "black_7",
+		"type": 2,
+		"value": 7,
+		"id": 20
+	},
+	"21": {
+		"res": "black_8",
+		"type": 2,
+		"value": 8,
+		"id": 21
+	},
+	"22": {
+		"res": "black_9",
+		"type": 2,
+		"value": 9,
+		"id": 22
+	},
+	"23": {
+		"res": "black_10",
+		"type": 2,
+		"value": 10,
+		"id": 23
+	},
+	"24": {
+		"res": "black_J",
+		"type": 2,
+		"value": 11,
+		"id": 24
+	},
+	"25": {
+		"res": "black_Q",
+		"type": 2,
+		"value": 12,
+		"id": 25
+	},
+	"26": {
+		"res": "black_K",
+		"type": 2,
+		"value": 13,
+		"id": 26
+	},
+	"27": {
+		"res": "plum_A",
+		"type": 3,
+		"value": 1,
+		"id": 27
+	},
+	"28": {
+		"res": "plum_2",
+		"type": 3,
+		"value": 2,
+		"id": 28
+	},
+	"29": {
+		"res": "plum_3",
+		"type": 3,
+		"value": 3,
+		"id": 29
+	},
+	"30": {
+		"res": "plum_4",
+		"type": 3,
+		"value": 4,
+		"id": 30
+	},
+	"31": {
+		"res": "plum_5",
+		"type": 3,
+		"value": 5,
+		"id": 31
+	},
+	"32": {
+		"res": "plum_6",
+		"type": 3,
+		"value": 6,
+		"id": 32
+	},
+	"33": {
+		"res": "plum_7",
+		"type": 3,
+		"value": 7,
+		"id": 33
+	},
+	"34": {
+		"res": "plum_8",
+		"type": 3,
+		"value": 8,
+		"id": 34
+	},
+	"35": {
+		"res": "plum_9",
+		"type": 3,
+		"value": 9,
+		"id": 35
+	},
+	"36": {
+		"res": "plum_10",
+		"type": 3,
+		"value": 10,
+		"id": 36
+	},
+	"37": {
+		"res": "plum_J",
+		"type": 3,
+		"value": 11,
+		"id": 37
+	},
+	"38": {
+		"res": "plum_Q",
+		"type": 3,
+		"value": 12,
+		"id": 38
+	},
+	"39": {
+		"res": "plum_K",
+		"type": 3,
+		"value": 13,
+		"id": 39
+	},
+	"40": {
+		"res": "square_A",
+		"type": 4,
+		"value": 1,
+		"id": 40
+	},
+	"41": {
+		"res": "square_2",
+		"type": 4,
+		"value": 2,
+		"id": 41
+	},
+	"42": {
+		"res": "square_3",
+		"type": 4,
+		"value": 3,
+		"id": 42
+	},
+	"43": {
+		"res": "square_4",
+		"type": 4,
+		"value": 4,
+		"id": 43
+	},
+	"44": {
+		"res": "square_5",
+		"type": 4,
+		"value": 5,
+		"id": 44
+	},
+	"45": {
+		"res": "square_6",
+		"type": 4,
+		"value": 6,
+		"id": 45
+	},
+	"46": {
+		"res": "square_7",
+		"type": 4,
+		"value": 7,
+		"id": 46
+	},
+	"47": {
+		"res": "square_8",
+		"type": 4,
+		"value": 8,
+		"id": 47
+	},
+	"48": {
+		"res": "square_9",
+		"type": 4,
+		"value": 9,
+		"id": 48
+	},
+	"49": {
+		"res": "square_10",
+		"type": 4,
+		"value": 10,
+		"id": 49
+	},
+	"50": {
+		"res": "square_J",
+		"type": 4,
+		"value": 11,
+		"id": 50
+	},
+	"51": {
+		"res": "square_Q",
+		"type": 4,
+		"value": 12,
+		"id": 51
+	},
+	"52": {
+		"res": "square_K",
+		"type": 4,
+		"value": 13,
+		"id": 52
+	}
+}

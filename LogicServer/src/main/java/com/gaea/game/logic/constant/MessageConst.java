@@ -40,5 +40,6 @@ public interface MessageConst {
         int RESP_LHD_BET_DATA = 1206;
         int RESP_LHD_BILL_DATA = 1208;
         int REQ_LHD_STATUS_COUNTDOWN = 1209;
+        int RESP_LHD_BET_RESULT = 1210;
     }
 }

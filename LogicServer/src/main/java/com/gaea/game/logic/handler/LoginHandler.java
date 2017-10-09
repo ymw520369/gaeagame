@@ -55,12 +55,14 @@ public class LoginHandler {
             Role role = roleDao.findOne(userInfo.playerId);
             Player player = new Player(role, userInfo);
             PlayerController playerController = new PlayerController(player);
+            playerController.userInfo = userInfo;
             playerController.session = session;
             session.setReference(playerController);
             session.setSessionListener(logicServer);
             sendLoginResult(session, ResultEnum.SUCCESS, player);
             logicServer.playerOnline(playerController);
             userInfo.serverId = logicServer.logicConfig().serverId;
+            userInfo.online = true;
             hashOperations.put(RedisKey.ONLINE_PLAYER, credential.playerId, userInfo);
             logicLogger.logLogin(role);
         } else {

@@ -1,11 +1,11 @@
 package com.gaea.game.logic.lhd;
 
+import com.gaea.game.core.constant.ResultEnum;
 import com.gaea.game.core.data.Role;
 import com.gaea.game.core.timer.TimerEvent;
 import com.gaea.game.core.timer.TimerListener;
 import com.gaea.game.logic.data.GameAnn;
 import com.gaea.game.logic.data.GameInfo;
-import com.gaea.game.logic.data.GameType;
 import com.gaea.game.logic.data.PlayerController;
 import com.gaea.game.logic.game.GameController;
 import com.gaea.game.logic.game.PokerHelper;
@@ -28,7 +28,7 @@ import java.util.concurrent.atomic.AtomicLong;
  * @author Alan
  * @since 1.0
  */
-@GameAnn(GameType.LHD)
+@GameAnn(1)
 public class LHDGameController extends GameController<LHDConfigInfo> implements TimerListener {
     /* 当前是第几局*/
     protected int round = 0;
@@ -75,7 +75,7 @@ public class LHDGameController extends GameController<LHDConfigInfo> implements 
 
     public void readyBet() {
         currentStatus = LHDStatus.READY;
-        timerCenter.add(new TimerEvent<>(this, gameConfigInfo.idelTime, LHDStatus.BET).withTimeUnit(TimeUnit.SECONDS));
+        timerCenter.add(new TimerEvent<>(this, gameConfigInfo.readyTime, LHDStatus.BET).withTimeUnit(TimeUnit.SECONDS));
         broadcastStatus();
     }
 
@@ -89,7 +89,7 @@ public class LHDGameController extends GameController<LHDConfigInfo> implements 
 
     public void endBet() {
         currentStatus = LHDStatus.BILL;
-        timerCenter.add(new TimerEvent<>(this, gameConfigInfo.idelTime, LHDStatus.IDEL).withTimeUnit(TimeUnit.SECONDS));
+        timerCenter.add(new TimerEvent<>(this, gameConfigInfo.billTime, LHDStatus.IDEL).withTimeUnit(TimeUnit.SECONDS));
         List<Poker> cards = PokerHelper.randomCard(2, false);
         longCard = cards.get(0);
         huCard = cards.get(1);
@@ -113,9 +113,9 @@ public class LHDGameController extends GameController<LHDConfigInfo> implements 
         if (longCard.value > huCard.value) {
             index = 0;
         } else if (longCard.value < huCard.value) {//虎赢
-            index = 1;
-        } else {//和
             index = 2;
+        } else {//和
+            index = 1;
         }
         BetArea betArea = betAreas[index];
         float odds = betArea.odds;
@@ -174,17 +174,26 @@ public class LHDGameController extends GameController<LHDConfigInfo> implements 
      * @param areaType 押注区
      */
     public void bet(long playerId, int areaType, int betMoney) {
+        ResultEnum resultEnum = ResultEnum.ERROR;
+        long remainMoney = 0;
         //如果当前是押注时间
         if (currentStatus == LHDStatus.BET) {
             Role role = roleDao.findOne(playerId);
             long cm = role.money;
             //如果当前有足够的金币，并且扣除成功
-            if (cm >= betMoney && roleDao.reduceMoney(playerId, betMoney, "bet") >= 0) {
+            if (cm >= betMoney && (remainMoney = roleDao.reduceMoney(playerId, betMoney, "bet")) >= 0) {
                 BetArea betArea = betAreas[areaType];
                 betArea.bet(playerId, betMoney);
+                resultEnum = ResultEnum.SUCCESS;
                 broadcastBetData();
+            } else {
+                resultEnum = ResultEnum.NOT_ENOUGH_GOLD;
             }
+        } else {
+            resultEnum = ResultEnum.NOT_IN_STATUS_BET;
         }
+        //发送押注结果
+        sendMessage(playerId, new BetResult(resultEnum, remainMoney));
     }
 
 

@@ -1,8 +1,7 @@
 package com.gaea.game.logic.manager;
 
 import com.gaea.game.core.constant.RedisKey;
-import com.gaea.game.core.dao.RoleDao;
-import com.gaea.game.core.data.Player;
+import com.gaea.game.core.data.UserInfo;
 import com.gaea.game.core.ws.GameSession;
 import com.gaea.game.core.ws.GameSessionListener;
 import com.gaea.game.logic.config.LogicConfig;
@@ -15,7 +14,6 @@ import org.springframework.data.redis.core.HashOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -31,8 +29,6 @@ public class LogicServer implements GameSessionListener {
     Logger log = LoggerFactory.getLogger(getClass());
     @Autowired
     private RedisTemplate redisTemplate;
-    @Resource(name = "redisRoleDao")
-    RoleDao roleDao;
     @Autowired
     private LogicConfig logicConfig;
 
@@ -61,14 +57,18 @@ public class LogicServer implements GameSessionListener {
             log.info("玩家下线，playerId={}", playerController.playerId);
             //玩家退出后，将玩家数据清除并存入mongo
             long roleUid = playerController.playerId();
-            HashOperations<String, Long, Player> hashOperations = redisTemplate.opsForHash();
-            hashOperations.delete(RedisKey.ONLINE_PLAYER, roleUid);
-            onlinePlayers.remove(playerController.playerId());
+            HashOperations<String, Long, UserInfo> hashOperations = redisTemplate.opsForHash();
+            UserInfo userInfo = hashOperations.get(RedisKey.ONLINE_PLAYER, roleUid);
             RoomController roomController = playerController.roomController;
-            logicLogger.logLogout(playerController.player.role);
             if (roomController != null) {
+                userInfo.roomId = playerController.roomController.uid;
                 roomController.exitRoom(playerController);
             }
+            userInfo.online = false;
+            userInfo.lastTime = System.currentTimeMillis();
+            hashOperations.put(RedisKey.ONLINE_PLAYER, roleUid, userInfo);
+            onlinePlayers.remove(playerController.playerId());
+            logicLogger.logLogout(playerController.player.role);
         }
     }
 }

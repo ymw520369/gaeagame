@@ -29,7 +29,8 @@ public enum ResultEnum {
     FINISH_QUEST(8, "完成任务"),
     LENGTH_TOO_LONG(9, "字符串长度过长"),
     NEED_GET_AWARD(10, "奖励未领取"),
-    SEASON_NOT_OPENED(11, "赛季未开启");
+    SEASON_NOT_OPENED(11, "赛季未开启"),
+    NOT_IN_STATUS_BET(12, "不在押注状态");
 
 
     public int code;

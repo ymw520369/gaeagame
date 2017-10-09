@@ -35,7 +35,7 @@ public class DataManager {
     @Autowired
     DSLogger dsLogger;
 
-    public Credential vertifyAccount(VertifyInfo vertifyInfo) {
+    public Credential vertifyAccount(String addr, VertifyInfo vertifyInfo) {
         PlatformUserInfo platformUserInfo = null;
         if ("1001".equals(vertifyInfo.uuid)) {
             platformUserInfo = createPlatformUserInfo(vertifyInfo);
@@ -60,7 +60,8 @@ public class DataManager {
         userInfo.credential = credential;
         userInfo.playerId = roleUid;
         userInfo.platformUserInfo = platformUserInfo;
-        userInfo.online = true;
+        userInfo.addr = addr;
+        userInfo.lastTime = System.currentTimeMillis();
 
         //将在线用户数据放入redis中管理
         hashOperations.put(RedisKey.ONLINE_PLAYER, roleUid, userInfo);

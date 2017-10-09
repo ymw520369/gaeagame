@@ -14,6 +14,7 @@ import com.gaea.game.logic.constant.GameResultEnum;
 import com.gaea.game.logic.data.GameAnn;
 import com.gaea.game.logic.data.PlayerController;
 import com.gaea.game.logic.game.GameController;
+import com.gaea.game.logic.manager.LogicLogger;
 import com.gaea.game.logic.sample.game.GameConfigInfo;
 import org.alan.utils.ClassUtils;
 import org.alan.utils.HttpUtils;
@@ -54,9 +55,19 @@ public class RoomManager implements CommandLineRunner {
     ILogicService logicService;
     @Autowired
     PlatformConfig platformConfig;
+    @Autowired
+    LogicLogger logicLogger;
 
     public GameResultEnum createRoom(PlayerController playerController, int gameSid, long liveRoomId) {
-        long uid = uidDao.getAndUpdateUid(UidTypeEnum.ROOM_UID, 1);
+        long uid = 1;
+        //如果没有直播房间号，默认是创建测试房间
+        if (playerController == null) {
+            uid = 1;
+            log.info("系统创建测试房间，gameSid={},liveRoomId={}", gameSid, liveRoomId);
+        } else {
+            uid = uidDao.getAndUpdateUid(UidTypeEnum.ROOM_UID, 1);
+            log.info("创建房间，roleUid={},gameSid={},liveRoomId={}", playerController.playerId, gameSid, liveRoomId);
+        }
         GameConfigInfo gameConfigInfo = GameConfigInfo.getGameConfigInfo(gameSid);
         RoomController roomController = new RoomController(playerController, gameConfigInfo, uid);
         roomController.setLiveRoomUid(liveRoomId);
@@ -78,9 +89,9 @@ public class RoomManager implements CommandLineRunner {
             LogicRoomInfo logicRoomInfo = roomController.getLogicRoomInfo();
             logicRoomInfo.wsAddress = logicConfig.wsAddress;
             logicService.addRoom(logicRoomInfo);
-
-            if (liveRoomId > 0) {
-                uploadCreateRoom(roomController);
+            if (playerController != null && liveRoomId > 0) {
+                uploadCreateRoom(playerController, roomController);
+                logicLogger.createRoom(playerController, gameSid, liveRoomId, uid);
             }
             return GameResultEnum.SUCCESS;
         } catch (Exception e) {
@@ -89,9 +100,12 @@ public class RoomManager implements CommandLineRunner {
         return GameResultEnum.CREATE_ROOM_FAIL;
     }
 
-    public void uploadCreateRoom(RoomController roomController) {
+    public void uploadCreateRoom(PlayerController playerController, RoomController roomController) {
         if (!StringUtils.isEmpty(platformConfig.createRoomUpUrl)) {
+            Map<String, String> head = new HashMap<>();
+            head.put("userId", playerController.getUserInfo().platformUserInfo.uid);
             Map<String, String> params = new HashMap<>();
+            params.put("head", JSON.toJSONString(head));
             params.put("avRoomId", "" + roomController.getLiveRoomUid());
             params.put("gameRoomId", "" + roomController.uid);
             params.put("gameName", roomController.gameController.getGameConfigInfo().getName());
@@ -113,11 +127,16 @@ public class RoomManager implements CommandLineRunner {
     }
 
     public GameResultEnum joinRoom(PlayerController playerController, long roomId) {
+        log.info("玩家加入房间,roleUid={},roomId={}", playerController.playerId, roomId);
         RoomController roomController = rooms.get(roomId);
+        GameResultEnum resultEnum = null;
         if (roomController != null) {
-            return roomController.joinRoom(playerController);
+            resultEnum = roomController.joinRoom(playerController);
+        } else {
+            resultEnum = GameResultEnum.JOIN_ROOM_FAIL;
         }
-        return GameResultEnum.JOIN_ROOM_FAIL;
+        logicLogger.joinRoom(playerController, roomId, resultEnum);
+        return resultEnum;
     }
 
 
@@ -128,7 +147,7 @@ public class RoomManager implements CommandLineRunner {
             classes.forEach(clazz -> {
                 GameAnn gameAnn = clazz.getAnnotation(GameAnn.class);
                 if (gameAnn != null) {
-                    gameTypeClassMap.put(gameAnn.value().ordinal() + 1, clazz);
+                    gameTypeClassMap.put(gameAnn.value(), clazz);
                 }
             });
         }

@@ -1,0 +1,17 @@
+{"file":"catdog_ui.png","frames":{
+"board_1":{"x":302,"y":177,"w":174,"h":114,"offX":0,"offY":0,"sourceW":174,"sourceH":114},
+"board_2":{"x":678,"y":116,"w":174,"h":114,"offX":0,"offY":0,"sourceW":174,"sourceH":114},
+"board_3":{"x":678,"y":0,"w":174,"h":114,"offX":0,"offY":0,"sourceW":174,"sourceH":114},
+"cat":{"x":854,"y":210,"w":103,"h":113,"offX":0,"offY":0,"sourceW":104,"sourceH":114},
+"cat_bg":{"x":854,"y":0,"w":138,"h":104,"offX":0,"offY":0,"sourceW":138,"sourceH":104},
+"coin":{"x":578,"y":285,"w":40,"h":40,"offX":0,"offY":0,"sourceW":40,"sourceH":40},
+"coin_1":{"x":727,"y":232,"w":68,"h":68,"offX":0,"offY":0,"sourceW":68,"sourceH":68},
+"coin_s":{"x":727,"y":302,"w":68,"h":68,"offX":0,"offY":0,"sourceW":68,"sourceH":68},
+"dog":{"x":621,"y":232,"w":104,"h":98,"offX":0,"offY":0,"sourceW":104,"sourceH":98},
+"dog_bg":{"x":478,"y":177,"w":141,"h":106,"offX":0,"offY":0,"sourceW":142,"sourceH":106},
+"gongxi":{"x":0,"y":242,"w":300,"h":240,"offX":0,"offY":0,"sourceW":300,"sourceH":240},
+"jiayou":{"x":0,"y":0,"w":300,"h":240,"offX":0,"offY":0,"sourceW":300,"sourceH":240},
+"pay":{"x":578,"y":332,"w":86,"h":49,"offX":0,"offY":0,"sourceW":86,"sourceH":49},
+"tie":{"x":478,"y":285,"w":98,"h":102,"offX":0,"offY":0,"sourceW":98,"sourceH":102},
+"tie_bg":{"x":854,"y":106,"w":138,"h":102,"offX":0,"offY":0,"sourceW":138,"sourceH":102},
+"time_bg":{"x":302,"y":0,"w":374,"h":175,"offX":0,"offY":0,"sourceW":374,"sourceH":176}}}

@@ -18,4 +18,5 @@ public class Role {
     public long roleUid;
     public String name;
     public long money;
+    public long roomId;
 }

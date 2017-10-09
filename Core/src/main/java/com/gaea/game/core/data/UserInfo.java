@@ -28,4 +28,7 @@ public class UserInfo {
     public int serverId;
     /* 用户当前是否在线，避免重复登录*/
     public boolean online;
+    public String addr;
+    public long roomId;
+    public long lastTime;
 }
